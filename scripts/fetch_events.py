@@ -53,8 +53,7 @@ Each event object must have exactly these fields:
 }
 
 Only include events you are confident actually occurred. Return an empty array [] if you find nothing new.
-Track events in ALL 50 states, not just early primary states. Include any state where the candidate
-appeared publicly."""
+Track events in ALL 50 states. Include any state where the candidate appeared publicly."""
 
 def load_existing_events():
     if EVENTS_FILE.exists():
@@ -95,7 +94,7 @@ For {candidate['name']}, use candidate id: "{candidate['id']}" """
 
     try:
         response = client.messages.create(
-            model="claude-opus-4-5",
+            model="claude-opus-4-6",
             max_tokens=2000,
             tools=[{"type": "web_search_20250305", "name": "web_search"}],
             system=SYSTEM_PROMPT,
