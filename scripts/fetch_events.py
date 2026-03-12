@@ -109,3 +109,68 @@ For {candidate['name']}, use candidate id: "{candidate['id']}" """
 
         full_text = full_text.strip()
         if full_text.startswith("```"):
+            full_text = full_text.split("```")[1]
+            if full_text.startswith("json"):
+                full_text = full_text[4:]
+        full_text = full_text.strip()
+
+        if not full_text or full_text == "[]":
+            print(f"  No events found for {candidate['name']}")
+            return []
+
+        events = json.loads(full_text)
+        if not isinstance(events, list):
+            print(f"  Unexpected response format for {candidate['name']}")
+            return []
+
+        print(f"  Found {len(events)} events for {candidate['name']}")
+        return events
+
+    except json.JSONDecodeError as e:
+        print(f"  JSON parse error for {candidate['name']}: {e}")
+        print(f"  Raw response: {full_text[:300]}")
+        return []
+    except Exception as e:
+        print(f"  Error fetching {candidate['name']}: {e}")
+        return []
+
+def main():
+    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    if not api_key:
+        raise ValueError("ANTHROPIC_API_KEY not set")
+
+    client = anthropic.Anthropic(api_key=api_key)
+    data = load_existing_events()
+    known_ids = existing_ids(data)
+    new_events = []
+
+    print(f"Starting event fetch from 2025-01-01. Existing events: {len(data['events'])}")
+
+    for i, candidate in enumerate(CANDIDATES):
+        print(f"\nFetching events for {candidate['name']}...")
+        events = fetch_events_for_candidate(client, candidate)
+
+        for event in events:
+            if not event.get("id") or not event.get("candidate") or not event.get("date"):
+                continue
+            if event["id"] in known_ids:
+                print(f"  Skipping duplicate: {event['id']}")
+                continue
+            if "press_clips" not in event or not isinstance(event["press_clips"], list):
+                event["press_clips"] = []
+            new_events.append(event)
+            known_ids.add(event["id"])
+
+        if i < len(CANDIDATES) - 1:
+            print("  Waiting 30s before next candidate...")
+            time.sleep(30)
+
+    print(f"\nAdding {len(new_events)} new events")
+    data["events"] = data["events"] + new_events
+    data["events"].sort(key=lambda e: e.get("date", ""), reverse=True)
+
+    save_events(data)
+    print("Done!")
+
+if __name__ == "__main__":
+    main()
