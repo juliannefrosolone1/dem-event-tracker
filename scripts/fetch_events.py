@@ -23,43 +23,43 @@ CANDIDATES = [
     {"id": "ossoff",     "name": "Jon Ossoff"},
 ]
 
-SYSTEM_PROMPT = """You are a political intelligence analyst tracking potential 2028 Democratic
-presidential primary candidates. Your job is to find recent public events, speeches, rallies,
-town halls, fundraisers, TV/media appearances, and significant press coverage for these candidates.
+SYSTEM_PROMPT = """You are a political intelligence analyst with deep knowledge of U.S. politics
+through early 2026. You track potential 2028 Democratic presidential primary candidates.
 
 Return ONLY a valid JSON array. No preamble, no markdown, no backticks. Just raw JSON.
 
 Each event object must have exactly these fields:
 {
-  "id": "unique string like candidate_id-YYYY-MM-DD-slug",
+  "id": "candidate_id-YYYY-MM-DD-slug (e.g. booker-2025-03-15-iowa-town-hall)",
   "candidate": "candidate id string",
   "date": "YYYY-MM-DD",
-  "event_type": one of ["rally", "town_hall", "speech", "fundraiser", "interview", "media_appearance", "endorsement", "travel", "other"],
+  "event_type": "one of: rally, town_hall, speech, fundraiser, interview, media_appearance, endorsement, travel, other",
   "title": "short descriptive title",
   "location_city": "city name or empty string",
   "location_state": "2-letter state code or empty string",
-  "location_display": "City, ST or 'Virtual' or 'National'",
+  "location_display": "City, ST or Virtual or National",
   "venue": "venue name or empty string",
-  "description": "1-2 sentence description of the event",
-  "significance": one of ["high", "medium", "low"],
+  "description": "1-2 sentence description",
+  "significance": "one of: high, medium, low",
   "press_clips": [
     {
       "outlet": "news outlet name",
       "headline": "article headline",
-      "url": "full url if known, empty string if not",
+      "url": "",
       "date": "YYYY-MM-DD"
     }
   ]
 }
 
-Only include events you are confident actually occurred. Return an empty array [] if you find nothing new.
-Track events in ALL 50 states. Include any state where the candidate appeared publicly."""
+Only include events you are highly confident actually occurred based on your training data.
+Return an empty array [] if you are not confident about specific events.
+Use empty string for url since you cannot verify URLs."""
 
 def load_existing_events():
     if EVENTS_FILE.exists():
         with open(EVENTS_FILE) as f:
             return json.load(f)
-    return {"events": [], "last_updated": "", "meta": {"source": "auto-fetched via Anthropic API + web search"}}
+    return {"events": [], "last_updated": "", "meta": {"source": "auto-fetched via Anthropic API"}}
 
 def save_events(data):
     data["last_updated"] = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -70,33 +70,30 @@ def save_events(data):
 def existing_ids(data):
     return {e["id"] for e in data["events"]}
 
-def fetch_events_for_candidate(client, candidate, lookback_days=440):
-    since_date = max(
-        (date.today() - timedelta(days=lookback_days)).strftime("%Y-%m-%d"),
-        "2025-01-01"
-    )
-    today = date.today().strftime("%Y-%m-%d")
+def fetch_events_for_candidate(client, candidate):
+    prompt = f"""From your training knowledge, list significant public events, appearances, and activities
+for {candidate['name']} from January 1, 2025 through early 2026.
 
-    prompt = f"""Search the web for public events, appearances, speeches, media appearances, and press coverage
-for {candidate['name']} between {since_date} and {today}.
-
-Look for:
+Include:
 - Public rallies, town halls, or campaign-style events in ANY state
-- Major speeches (Senate floor, think tanks, conferences, universities)
-- TV interviews and podcast appearances
-- Travel to any US state, with special attention to early primary states (Iowa, New Hampshire, Nevada, South Carolina, Georgia)
+- Major speeches (Senate/House floor, think tanks, conferences, universities)
+- TV interviews and major podcast appearances
+- Travel to early primary states (Iowa, New Hampshire, Nevada, South Carolina, Georgia)
 - Fundraising events
 - Endorsements given or received
-- Significant op-eds or public statements covered by national media
+- Major op-eds or public statements that received national media coverage
 
-Return a JSON array of event objects as specified. Include press clip URLs when available.
-For {candidate['name']}, use candidate id: "{candidate['id']}" """
+Be specific about dates, locations, and what happened. Only include events you are genuinely
+confident occurred. Aim for 5-15 significant events.
+
+Use candidate id: "{candidate['id']}"
+
+Return a JSON array of event objects."""
 
     try:
         response = client.messages.create(
-            model="claude-opus-4-6",
-            max_tokens=2000,
-            tools=[{"type": "web_search_20250305", "name": "web_search"}],
+            model="claude-sonnet-4-6",
+            max_tokens=3000,
             system=SYSTEM_PROMPT,
             messages=[{"role": "user", "content": prompt}]
         )
@@ -108,18 +105,19 @@ For {candidate['name']}, use candidate id: "{candidate['id']}" """
 
         full_text = full_text.strip()
         if full_text.startswith("```"):
-            full_text = full_text.split("```")[1]
+            parts = full_text.split("```")
+            full_text = parts[1] if len(parts) > 1 else full_text
             if full_text.startswith("json"):
                 full_text = full_text[4:]
         full_text = full_text.strip()
 
         if not full_text or full_text == "[]":
-            print(f"  No events found for {candidate['name']}")
+            print(f"  No events returned for {candidate['name']}")
             return []
 
         events = json.loads(full_text)
         if not isinstance(events, list):
-            print(f"  Unexpected response format for {candidate['name']}")
+            print(f"  Unexpected format for {candidate['name']}")
             return []
 
         print(f"  Found {len(events)} events for {candidate['name']}")
@@ -127,7 +125,7 @@ For {candidate['name']}, use candidate id: "{candidate['id']}" """
 
     except json.JSONDecodeError as e:
         print(f"  JSON parse error for {candidate['name']}: {e}")
-        print(f"  Raw response: {full_text[:300]}")
+        print(f"  Raw (first 300): {full_text[:300]}")
         return []
     except Exception as e:
         print(f"  Error fetching {candidate['name']}: {e}")
@@ -143,7 +141,7 @@ def main():
     known_ids = existing_ids(data)
     new_events = []
 
-    print(f"Starting event fetch from 2025-01-01. Existing events: {len(data['events'])}")
+    print(f"Starting event fetch. Existing events: {len(data['events'])}")
 
     for i, candidate in enumerate(CANDIDATES):
         print(f"\nFetching events for {candidate['name']}...")
@@ -161,8 +159,8 @@ def main():
             known_ids.add(event["id"])
 
         if i < len(CANDIDATES) - 1:
-            print("  Waiting 30s before next candidate...")
-            time.sleep(30)
+            print("  Waiting 10s before next candidate...")
+            time.sleep(10)
 
     print(f"\nAdding {len(new_events)} new events")
     data["events"] = data["events"] + new_events
