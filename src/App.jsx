@@ -17,15 +17,15 @@ const CANDIDATES = [
 ];
 const CANDIDATE_MAP = Object.fromEntries(CANDIDATES.map(c => [c.id, c]));
 const EVENT_TYPES = [
-  { id: "rally",            label: "Rally",            icon: "📣" },
-  { id: "town_hall",        label: "Town Hall",         icon: "🏛️" },
-  { id: "speech",           label: "Speech",            icon: "🎤" },
-  { id: "fundraiser",       label: "Fundraiser",        icon: "💰" },
-  { id: "interview",        label: "Interview",         icon: "🎙️" },
-  { id: "media_appearance", label: "Media Appearance",  icon: "📺" },
-  { id: "endorsement",      label: "Endorsement",       icon: "✅" },
-  { id: "travel",           label: "Travel",            icon: "✈️" },
-  { id: "other",            label: "Other",             icon: "📌" },
+  { id: "rally", label: "Rally", icon: "📣" },
+  { id: "town_hall", label: "Town Hall", icon: "🏛️" },
+  { id: "speech", label: "Speech", icon: "🎤" },
+  { id: "fundraiser", label: "Fundraiser", icon: "💰" },
+  { id: "interview", label: "Interview", icon: "🎙️" },
+  { id: "media_appearance", label: "Media Appearance", icon: "📺" },
+  { id: "endorsement", label: "Endorsement", icon: "✅" },
+  { id: "travel", label: "Travel", icon: "✈️" },
+  { id: "other", label: "Other", icon: "📌" },
 ];
 const EVENT_TYPE_MAP = Object.fromEntries(EVENT_TYPES.map(t => [t.id, t]));
 const EARLY_STATES = ["IA", "NH", "NV", "SC", "GA"];
@@ -35,6 +35,17 @@ const SIGNIFICANCE_COLORS = { high: "#e63946", medium: "#f4a261", low: "#555" };
 const TABS = ["Overview", "All Events", "By Candidate", "By State", "Press Clips"];
 const LS_KEY = "event_tracker_manual";
 const PASSWORD = "tree82x";
+
+// US state grid layout (col, row) approximating geography
+const STATE_GRID = {
+  WA:[1,0],MT:[2,0],ND:[3,0],MN:[4,0],WI:[5,0],MI:[6,0],VT:[8,0],ME:[9,0],
+  OR:[1,1],ID:[2,1],SD:[3,1],IA:[4,1],IL:[5,1],IN:[6,1],OH:[7,1],PA:[8,1],NY:[9,1],
+  CA:[1,2],NV:[2,2],WY:[3,2],NE:[4,2],MO:[5,2],KY:[6,2],WV:[7,2],VA:[8,2],MD:[9,2],DC:[10,2],
+  AK:[0,3],AZ:[2,3],UT:[3,3],CO:[4,3],KS:[5,3],TN:[6,3],NC:[7,3],SC:[8,3],DE:[9,3],NJ:[10,3],
+  HI:[0,4],NM:[3,4],OK:[4,4],AR:[5,4],MS:[6,4],AL:[7,4],GA:[8,4],
+  TX:[4,5],LA:[5,5],FL:[7,5],
+  NH:[9,0],MA:[9,2],CT:[9,3],RI:[10,3],
+};
 
 function loadManualEvents() { try { return JSON.parse(localStorage.getItem(LS_KEY) || "[]"); } catch { return []; } }
 function saveManualEvents(events) { localStorage.setItem(LS_KEY, JSON.stringify(events)); }
@@ -46,7 +57,7 @@ const S = {
   title: { fontSize: 28, fontWeight: 800, color: "#fff", margin: 0, letterSpacing: "-0.5px" },
   subtitle: { fontSize: 13, color: "#555", fontFamily: "monospace", marginTop: 6 },
   tabs: { display: "flex", gap: 0, padding: "0 36px", borderBottom: "1px solid #1a1a22" },
-  tab: (active) => ({ padding: "14px 20px", background: "transparent", border: "none", borderBottom: active ? "2px solid #1a6bff" : "2px solid transparent", color: active ? "#1a6bff" : "#666", cursor: "pointer", fontSize: 13, fontWeight: active ? 600 : 400, letterSpacing: "0.02em", transition: "color 0.15s" }),
+  tab: (active) => ({ padding: "14px 20px", background: "transparent", border: "none", borderBottom: active ? "2px solid #1a6bff" : "2px solid transparent", color: active ? "#1a6bff" : "#666", cursor: "pointer", fontSize: 13, fontWeight: active ? 600 : 400, transition: "color 0.15s" }),
   body: { padding: "28px 36px" },
   card: { background: "#111118", border: "1px solid #1a1a22", borderRadius: 8, padding: "20px 24px", marginBottom: 12 },
   statCard: { background: "#111118", border: "1px solid #1a1a22", borderRadius: 8, padding: "20px 24px" },
@@ -81,13 +92,223 @@ function EventForm({ event, onSave, onCancel }) {
   function removeClip(i) { setForm(f => ({ ...f, press_clips: f.press_clips.filter((_, idx) => idx !== i) })); }
   const locationDisplay = form.location_city ? `${form.location_city}${form.location_state ? ", " + form.location_state : ""}` : form.location_display || "";
   function handleSave() { if (!form.candidate || !form.date || !form.title) { alert("Candidate, date, and title are required."); return; } onSave({ ...form, location_display: locationDisplay, _manual: true }); }
-  return <div style={{ background: "#0d0d14", border: "1px solid #2a2a35", borderRadius: 10, padding: 24, marginBottom: 20 }}><div style={{ fontSize: 16, fontWeight: 700, color: "#fff", marginBottom: 20 }}>{event.id.startsWith("manual-") && event.title === "" ? "Add New Event" : "Edit Event"}</div><div style={S.grid3}><div><label style={S.label}>Candidate *</label><select value={form.candidate} onChange={e => set("candidate", e.target.value)} style={S.input}><option value="">Select candidate…</option>{CANDIDATES.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}</select></div><div><label style={S.label}>Date *</label><input type="date" value={form.date} onChange={e => set("date", e.target.value)} style={S.input} /></div><div><label style={S.label}>Event Type</label><select value={form.event_type} onChange={e => set("event_type", e.target.value)} style={S.input}>{EVENT_TYPES.map(t => <option key={t.id} value={t.id}>{t.icon} {t.label}</option>)}</select></div></div><div style={{ marginTop: 14 }}><label style={S.label}>Title *</label><input value={form.title} onChange={e => set("title", e.target.value)} style={S.input} placeholder="Event title…" /></div><div style={{ ...S.grid3, marginTop: 14 }}><div><label style={S.label}>City</label><input value={form.location_city} onChange={e => set("location_city", e.target.value)} style={S.input} placeholder="Des Moines" /></div><div><label style={S.label}>State</label><input value={form.location_state} onChange={e => set("location_state", e.target.value.toUpperCase().slice(0,2))} style={S.input} placeholder="IA" maxLength={2} /></div><div><label style={S.label}>Venue</label><input value={form.venue} onChange={e => set("venue", e.target.value)} style={S.input} placeholder="Venue name…" /></div></div><div style={{ marginTop: 14 }}><label style={S.label}>Description</label><textarea value={form.description} onChange={e => set("description", e.target.value)} style={{ ...S.input, height: 80, resize: "vertical" }} placeholder="Brief description…" /></div><div style={{ marginTop: 14 }}><label style={S.label}>Significance</label><select value={form.significance} onChange={e => set("significance", e.target.value)} style={{ ...S.input, width: "auto" }}><option value="high">● High</option><option value="medium">● Medium</option><option value="low">● Low</option></select></div><div style={{ marginTop: 20 }}><label style={{ ...S.label, marginBottom: 8, fontSize: 13, color: "#aaa" }}>Press Clips</label>{form.press_clips?.map((clip, i) => <div key={i} style={{ display: "flex", gap: 8, marginBottom: 6, alignItems: "center" }}><span style={{ fontSize: 12, color: "#888", flex: 1 }}>{clip.outlet} · {clip.headline}</span><button onClick={() => removeClip(i)} style={{ ...S.btnOutline, fontSize: 11, padding: "4px 10px", color: "#e63946" }}>✕</button></div>)}<div style={{ display: "flex", gap: 8, marginTop: 8 }}><input value={clipText} onChange={e => setClipText(e.target.value)} style={{ ...S.input, flex: 1 }} placeholder="Outlet | Headline | URL (optional) | Date (optional)" onKeyDown={e => e.key === "Enter" && addClip()} /><button onClick={addClip} style={S.btn()}>Add</button></div><div style={{ fontSize: 11, color: "#444", marginTop: 4 }}>Format: Outlet | Headline | URL | Date</div></div><div style={{ display: "flex", gap: 10, marginTop: 24 }}><button onClick={handleSave} style={S.btn()}>Save Event</button><button onClick={onCancel} style={S.btnOutline}>Cancel</button></div></div>;
+  return <div style={{ background: "#0d0d14", border: "1px solid #2a2a35", borderRadius: 10, padding: 24, marginBottom: 20 }}><div style={{ fontSize: 16, fontWeight: 700, color: "#fff", marginBottom: 20 }}>{event.id.startsWith("manual-") && event.title === "" ? "Add New Event" : "Edit Event"}</div><div style={S.grid3}><div><label style={S.label}>Candidate *</label><select value={form.candidate} onChange={e => set("candidate", e.target.value)} style={S.input}><option value="">Select…</option>{CANDIDATES.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}</select></div><div><label style={S.label}>Date *</label><input type="date" value={form.date} onChange={e => set("date", e.target.value)} style={S.input} /></div><div><label style={S.label}>Event Type</label><select value={form.event_type} onChange={e => set("event_type", e.target.value)} style={S.input}>{EVENT_TYPES.map(t => <option key={t.id} value={t.id}>{t.icon} {t.label}</option>)}</select></div></div><div style={{ marginTop: 14 }}><label style={S.label}>Title *</label><input value={form.title} onChange={e => set("title", e.target.value)} style={S.input} placeholder="Event title…" /></div><div style={{ ...S.grid3, marginTop: 14 }}><div><label style={S.label}>City</label><input value={form.location_city} onChange={e => set("location_city", e.target.value)} style={S.input} placeholder="Des Moines" /></div><div><label style={S.label}>State</label><input value={form.location_state} onChange={e => set("location_state", e.target.value.toUpperCase().slice(0,2))} style={S.input} placeholder="IA" maxLength={2} /></div><div><label style={S.label}>Venue</label><input value={form.venue} onChange={e => set("venue", e.target.value)} style={S.input} placeholder="Venue name…" /></div></div><div style={{ marginTop: 14 }}><label style={S.label}>Description</label><textarea value={form.description} onChange={e => set("description", e.target.value)} style={{ ...S.input, height: 80, resize: "vertical" }} placeholder="Brief description…" /></div><div style={{ marginTop: 14 }}><label style={S.label}>Significance</label><select value={form.significance} onChange={e => set("significance", e.target.value)} style={{ ...S.input, width: "auto" }}><option value="high">● High</option><option value="medium">● Medium</option><option value="low">● Low</option></select></div><div style={{ marginTop: 20 }}><label style={{ ...S.label, marginBottom: 8, fontSize: 13, color: "#aaa" }}>Press Clips</label>{form.press_clips?.map((clip, i) => <div key={i} style={{ display: "flex", gap: 8, marginBottom: 6, alignItems: "center" }}><span style={{ fontSize: 12, color: "#888", flex: 1 }}>{clip.outlet} · {clip.headline}</span><button onClick={() => removeClip(i)} style={{ ...S.btnOutline, fontSize: 11, padding: "4px 10px", color: "#e63946" }}>✕</button></div>)}<div style={{ display: "flex", gap: 8, marginTop: 8 }}><input value={clipText} onChange={e => setClipText(e.target.value)} style={{ ...S.input, flex: 1 }} placeholder="Outlet | Headline | URL | Date" onKeyDown={e => e.key === "Enter" && addClip()} /><button onClick={addClip} style={S.btn()}>Add</button></div></div><div style={{ display: "flex", gap: 10, marginTop: 24 }}><button onClick={handleSave} style={S.btn()}>Save Event</button><button onClick={onCancel} style={S.btnOutline}>Cancel</button></div></div>;
 }
 
-function OverviewTab({ events }) {
-  const stats = useMemo(() => CANDIDATES.map(c => { const ce = events.filter(e => e.candidate === c.id); return { ...c, total: ce.length, earlyState: ce.filter(e => EARLY_STATES.includes(e.location_state)).length, clips: ce.reduce((s, e) => s + (e.press_clips?.length || 0), 0) }; }).sort((a, b) => b.total - a.total), [events]);
+// ── US TRAVEL MAP ──────────────────────────────────────────────────────────
+function USMap({ events, filterCandidate = "all" }) {
+  const [hoveredState, setHoveredState] = useState(null);
+
+  const stateData = useMemo(() => {
+    const data = {};
+    events.forEach(e => {
+      if (!e.location_state) return;
+      if (filterCandidate !== "all" && e.candidate !== filterCandidate) return;
+      const st = e.location_state;
+      if (!data[st]) data[st] = { count: 0, candidates: new Set(), events: [] };
+      data[st].count++;
+      data[st].candidates.add(e.candidate);
+      data[st].events.push(e);
+    });
+    return data;
+  }, [events, filterCandidate]);
+
+  const CELL = 44;
+  const PAD = 8;
+
+  // Build grid dimensions
+  const maxCol = Math.max(...Object.values(STATE_GRID).map(([c]) => c));
+  const maxRow = Math.max(...Object.values(STATE_GRID).map(([,r]) => r));
+  const W = (maxCol + 1) * CELL + PAD * 2;
+  const H = (maxRow + 1) * CELL + PAD * 2;
+
+  function getStateColor(st) {
+    const d = stateData[st];
+    if (!d) return "#0d0d14";
+    const candidates = [...d.candidates];
+    if (candidates.length === 1) {
+      const c = CANDIDATE_MAP[candidates[0]];
+      return c ? `${c.color}44` : "#1a1a2244";
+    }
+    return "#ffffff22";
+  }
+
+  function getStateBorder(st) {
+    const d = stateData[st];
+    if (!d) return EARLY_STATES.includes(st) ? "#2a2a35" : "#1a1a22";
+    const candidates = [...d.candidates];
+    if (candidates.length === 1) {
+      const c = CANDIDATE_MAP[candidates[0]];
+      return c ? `${c.color}88` : "#444";
+    }
+    return "#ffffff55";
+  }
+
+  const hovered = hoveredState ? stateData[hoveredState] : null;
+
+  return (
+    <div style={S.card}>
+      <div style={{ fontSize: 13, fontWeight: 600, color: "#aaa", marginBottom: 16 }}>
+        CANDIDATE TRAVEL MAP — 2025
+        <span style={{ fontSize: 11, color: "#555", fontWeight: 400, marginLeft: 12, fontFamily: "monospace" }}>
+          {Object.keys(stateData).length} states visited · {Object.values(stateData).reduce((s, d) => s + d.count, 0)} events mapped
+        </span>
+      </div>
+
+      <div style={{ overflowX: "auto" }}>
+        <svg width={W} height={H} style={{ display: "block" }}>
+          {Object.entries(STATE_GRID).map(([st, [col, row]]) => {
+            const x = PAD + col * CELL;
+            const y = PAD + row * CELL;
+            const d = stateData[st];
+            const isEarly = EARLY_STATES.includes(st);
+            const isHovered = hoveredState === st;
+            const candidates = d ? [...d.candidates] : [];
+
+            return (
+              <g key={st}
+                onMouseEnter={() => setHoveredState(st)}
+                onMouseLeave={() => setHoveredState(null)}
+                style={{ cursor: d ? "pointer" : "default" }}>
+                <rect
+                  x={x + 2} y={y + 2}
+                  width={CELL - 6} height={CELL - 6}
+                  rx={4}
+                  fill={isHovered ? (d ? getStateColor(st).replace("44","88") : "#1a1a22") : getStateColor(st)}
+                  stroke={isEarly && !d ? "#2a9d8f44" : getStateBorder(st)}
+                  strokeWidth={isEarly ? 1.5 : 1}
+                />
+                {/* candidate color dots */}
+                {candidates.slice(0, 4).map((cid, i) => {
+                  const c = CANDIDATE_MAP[cid];
+                  if (!c) return null;
+                  const dotX = x + 6 + (i % 2) * 8;
+                  const dotY = y + 6 + Math.floor(i / 2) * 8;
+                  return <circle key={cid} cx={dotX} cy={dotY} r={3} fill={c.color} opacity={0.9} />;
+                })}
+                {candidates.length > 4 && (
+                  <text x={x + CELL/2} y={y + CELL - 8} textAnchor="middle" fill="#aaa" fontSize={8}>+{candidates.length - 4}</text>
+                )}
+                <text x={x + CELL/2} y={y + CELL/2 + 2} textAnchor="middle" dominantBaseline="middle"
+                  fill={d ? "#fff" : isEarly ? "#2a9d8f" : "#444"}
+                  fontSize={10} fontWeight={d ? 700 : 400} fontFamily="monospace">
+                  {st}
+                </text>
+                {isEarly && !d && (
+                  <text x={x + CELL - 8} y={y + 10} textAnchor="middle" fill="#2a9d8f" fontSize={8}>★</text>
+                )}
+                {d && d.count > 1 && (
+                  <text x={x + CELL - 8} y={y + CELL - 6} textAnchor="middle" fill="#fff" fontSize={8} opacity={0.7}>{d.count}</text>
+                )}
+              </g>
+            );
+          })}
+        </svg>
+      </div>
+
+      {/* Hover tooltip */}
+      {hoveredState && (
+        <div style={{ marginTop: 12, padding: "12px 16px", background: "#0d0d14", borderRadius: 6, border: "1px solid #2a2a35" }}>
+          <div style={{ fontSize: 13, fontWeight: 700, color: "#fff", marginBottom: 6 }}>
+            {STATE_NAMES[hoveredState] || hoveredState}
+            {EARLY_STATES.includes(hoveredState) && <span style={{ fontSize: 11, color: "#2a9d8f", marginLeft: 8 }}>★ EARLY STATE</span>}
+          </div>
+          {hovered ? (
+            <>
+              <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 6 }}>
+                {[...hovered.candidates].map(cid => <CandidateBadge key={cid} id={cid} />)}
+              </div>
+              <div style={{ fontSize: 12, color: "#555" }}>{hovered.count} event{hovered.count !== 1 ? "s" : ""}</div>
+            </>
+          ) : (
+            <div style={{ fontSize: 12, color: "#444" }}>No events tracked yet</div>
+          )}
+        </div>
+      )}
+
+      {/* Legend */}
+      <div style={{ display: "flex", gap: 16, marginTop: 14, flexWrap: "wrap", alignItems: "center" }}>
+        <div style={{ fontSize: 11, color: "#444", fontFamily: "monospace" }}>Colored dots = candidates visited · ★ = early primary state</div>
+        <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+          {CANDIDATES.filter(c => {
+            const visited = Object.values(stateData).some(d => d.candidates.has(c.id));
+            return visited;
+          }).map(c => (
+            <div key={c.id} style={{ display: "flex", alignItems: "center", gap: 4 }}>
+              <div style={{ width: 8, height: 8, borderRadius: "50%", background: c.color }} />
+              <span style={{ fontSize: 10, color: "#666" }}>{c.short}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── OVERVIEW TAB ───────────────────────────────────────────────────────────
+function OverviewTab({ events, onEdit, onDelete }) {
+  const [mapCandidate, setMapCandidate] = useState("all");
+
+  const stats = useMemo(() => CANDIDATES.map(c => {
+    const ce = events.filter(e => e.candidate === c.id);
+    return { ...c, total: ce.length, earlyState: ce.filter(e => EARLY_STATES.includes(e.location_state)).length, clips: ce.reduce((s, e) => s + (e.press_clips?.length || 0), 0) };
+  }).sort((a, b) => b.total - a.total), [events]);
+
   const maxTotal = Math.max(...stats.map(s => s.total), 1);
-  return <div><div style={{ fontSize: 11, color: "#555", fontFamily: "monospace", marginBottom: 20 }}>{events.length} total events tracked across {CANDIDATES.length} candidates</div><div style={S.card}><div style={{ fontSize: 13, fontWeight: 600, color: "#aaa", marginBottom: 20 }}>EVENT COUNT BY CANDIDATE</div>{stats.map(s => <div key={s.id} style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 10 }}><div style={{ width: 72, fontSize: 12, color: s.color, textAlign: "right", flexShrink: 0 }}>{s.short}</div><div style={{ flex: 1, background: "#1a1a22", borderRadius: 4, height: 22, overflow: "hidden" }}><div style={{ width: `${(s.total / maxTotal) * 100}%`, background: `${s.color}55`, borderRight: `2px solid ${s.color}`, height: "100%", minWidth: s.total > 0 ? 6 : 0 }} /></div><div style={{ width: 28, fontSize: 13, fontWeight: 600, color: "#fff", textAlign: "right", fontFamily: "monospace" }}>{s.total}</div>{s.earlyState > 0 && <div style={{ fontSize: 11, color: "#2a9d8f", fontFamily: "monospace", width: 40 }}>★ {s.earlyState}</div>}</div>)}<div style={{ fontSize: 11, color: "#444", marginTop: 8, fontFamily: "monospace" }}>★ = events in early primary states (IA, NH, NV, SC, GA)</div></div><div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12, marginTop: 16 }}>{[{ label: "Total Events", value: events.length }, { label: "Early State Visits", value: events.filter(e => EARLY_STATES.includes(e.location_state)).length }, { label: "Press Clips", value: events.reduce((s, e) => s + (e.press_clips?.length || 0), 0) }, { label: "High Significance", value: events.filter(e => e.significance === "high").length }].map(s => <div key={s.label} style={S.statCard}><div style={{ fontSize: 28, fontWeight: 800, color: "#fff" }}>{s.value}</div><div style={{ fontSize: 11, color: "#555", fontFamily: "monospace", marginTop: 4 }}>{s.label.toUpperCase()}</div></div>)}</div><div style={{ marginTop: 24 }}><div style={{ fontSize: 13, fontWeight: 600, color: "#aaa", marginBottom: 14 }}>RECENT HIGH-SIGNIFICANCE EVENTS</div>{events.filter(e => e.significance === "high").slice(0, 5).map(e => { const c = CANDIDATE_MAP[e.candidate]; return <div key={e.id} style={{ ...S.card, borderLeft: `3px solid ${c?.color || "#333"}`, padding: "14px 18px" }}><div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}><CandidateBadge id={e.candidate} /><span style={{ fontSize: 12, color: "#555", fontFamily: "monospace" }}>{e.date}</span><span style={{ fontSize: 13, fontWeight: 600 }}>{e.title}</span><span style={{ fontSize: 12, color: "#666" }}>· {e.location_display}</span></div></div>; })}{events.filter(e => e.significance === "high").length === 0 && <div style={{ color: "#444", fontSize: 13 }}>No high-significance events yet.</div>}</div></div>;
+
+  return (
+    <div>
+      <div style={{ fontSize: 11, color: "#555", fontFamily: "monospace", marginBottom: 20 }}>{events.length} total events across {CANDIDATES.length} candidates</div>
+
+      {/* Map */}
+      <div style={{ marginBottom: 4, display: "flex", alignItems: "center", gap: 12 }}>
+        <select value={mapCandidate} onChange={e => setMapCandidate(e.target.value)} style={{ ...S.input, width: "auto", fontSize: 12 }}>
+          <option value="all">All Candidates</option>
+          {CANDIDATES.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
+        </select>
+      </div>
+      <USMap events={events} filterCandidate={mapCandidate} />
+
+      {/* Bar chart */}
+      <div style={S.card}>
+        <div style={{ fontSize: 13, fontWeight: 600, color: "#aaa", marginBottom: 20 }}>EVENT COUNT BY CANDIDATE</div>
+        {stats.map(s => (
+          <div key={s.id} style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 10 }}>
+            <div style={{ width: 72, fontSize: 12, color: s.color, textAlign: "right", flexShrink: 0 }}>{s.short}</div>
+            <div style={{ flex: 1, background: "#1a1a22", borderRadius: 4, height: 22, overflow: "hidden" }}>
+              <div style={{ width: `${(s.total / maxTotal) * 100}%`, background: `${s.color}55`, borderRight: `2px solid ${s.color}`, height: "100%", minWidth: s.total > 0 ? 6 : 0 }} />
+            </div>
+            <div style={{ width: 28, fontSize: 13, fontWeight: 600, color: "#fff", textAlign: "right", fontFamily: "monospace" }}>{s.total}</div>
+            {s.earlyState > 0 && <div style={{ fontSize: 11, color: "#2a9d8f", fontFamily: "monospace", width: 40 }}>★ {s.earlyState}</div>}
+          </div>
+        ))}
+      </div>
+
+      {/* Stat cards */}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12, marginTop: 16 }}>
+        {[
+          { label: "Total Events", value: events.length },
+          { label: "Early State Visits", value: events.filter(e => EARLY_STATES.includes(e.location_state)).length },
+          { label: "Press Clips", value: events.reduce((s, e) => s + (e.press_clips?.length || 0), 0) },
+          { label: "High Significance", value: events.filter(e => e.significance === "high").length },
+        ].map(s => (
+          <div key={s.label} style={S.statCard}>
+            <div style={{ fontSize: 28, fontWeight: 800, color: "#fff" }}>{s.value}</div>
+            <div style={{ fontSize: 11, color: "#555", fontFamily: "monospace", marginTop: 4 }}>{s.label.toUpperCase()}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Recent high-sig events */}
+      <div style={{ marginTop: 24 }}>
+        <div style={{ fontSize: 13, fontWeight: 600, color: "#aaa", marginBottom: 14 }}>RECENT HIGH-SIGNIFICANCE EVENTS</div>
+        {events.filter(e => e.significance === "high").slice(0, 6).map(e => {
+          const c = CANDIDATE_MAP[e.candidate];
+          return <div key={e.id} style={{ ...S.card, borderLeft: `3px solid ${c?.color || "#333"}`, padding: "14px 18px" }}><div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}><CandidateBadge id={e.candidate} /><span style={{ fontSize: 12, color: "#555", fontFamily: "monospace" }}>{e.date}</span><span style={{ fontSize: 13, fontWeight: 600 }}>{e.title}</span><span style={{ fontSize: 12, color: "#666" }}>· {e.location_display}</span></div></div>;
+        })}
+      </div>
+    </div>
+  );
 }
 
 function AllEventsTab({ events, onEdit, onDelete, onAdd }) {
@@ -95,7 +316,13 @@ function AllEventsTab({ events, onEdit, onDelete, onAdd }) {
   const [filterType, setFilterType] = useState("all");
   const [filterSig, setFilterSig] = useState("all");
   const [search, setSearch] = useState("");
-  const filtered = useMemo(() => events.filter(e => { if (filterCandidate !== "all" && e.candidate !== filterCandidate) return false; if (filterType !== "all" && e.event_type !== filterType) return false; if (filterSig !== "all" && e.significance !== filterSig) return false; if (search) { const q = search.toLowerCase(); return e.title?.toLowerCase().includes(q) || e.description?.toLowerCase().includes(q) || e.location_display?.toLowerCase().includes(q) || e.venue?.toLowerCase().includes(q); } return true; }), [events, filterCandidate, filterType, filterSig, search]);
+  const filtered = useMemo(() => events.filter(e => {
+    if (filterCandidate !== "all" && e.candidate !== filterCandidate) return false;
+    if (filterType !== "all" && e.event_type !== filterType) return false;
+    if (filterSig !== "all" && e.significance !== filterSig) return false;
+    if (search) { const q = search.toLowerCase(); return e.title?.toLowerCase().includes(q) || e.description?.toLowerCase().includes(q) || e.location_display?.toLowerCase().includes(q); }
+    return true;
+  }), [events, filterCandidate, filterType, filterSig, search]);
   return <div><div style={{ display: "flex", gap: 10, marginBottom: 20, flexWrap: "wrap", alignItems: "center" }}><input value={search} onChange={e => setSearch(e.target.value)} style={{ ...S.input, width: 200 }} placeholder="Search events…" /><select value={filterCandidate} onChange={e => setFilterCandidate(e.target.value)} style={{ ...S.input, width: "auto" }}><option value="all">All Candidates</option>{CANDIDATES.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}</select><select value={filterType} onChange={e => setFilterType(e.target.value)} style={{ ...S.input, width: "auto" }}><option value="all">All Types</option>{EVENT_TYPES.map(t => <option key={t.id} value={t.id}>{t.icon} {t.label}</option>)}</select><select value={filterSig} onChange={e => setFilterSig(e.target.value)} style={{ ...S.input, width: "auto" }}><option value="all">All Significance</option><option value="high">● High</option><option value="medium">● Medium</option><option value="low">● Low</option></select><div style={{ marginLeft: "auto" }}><button onClick={onAdd} style={S.btn()}>+ Add Event</button></div></div><div style={{ fontSize: 12, color: "#555", fontFamily: "monospace", marginBottom: 14 }}>Showing {filtered.length} of {events.length} events</div>{filtered.length === 0 ? <div style={{ color: "#444", fontSize: 13 }}>No events match your filters.</div> : filtered.map(e => <EventCard key={e.id} event={e} onEdit={onEdit} onDelete={onDelete} />)}</div>;
 }
 
@@ -104,7 +331,14 @@ function ByCandidateTab({ events, onEdit, onDelete, onAdd }) {
   const cEvents = useMemo(() => events.filter(e => e.candidate === selectedId), [events, selectedId]);
   const candidate = CANDIDATE_MAP[selectedId];
   const stateCounts = useMemo(() => { const counts = {}; cEvents.forEach(e => { if (e.location_state) counts[e.location_state] = (counts[e.location_state] || 0) + 1; }); return Object.entries(counts).sort((a,b) => b[1]-a[1]); }, [cEvents]);
-  return <div><div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 24 }}>{CANDIDATES.map(c => { const count = events.filter(e => e.candidate === c.id).length; return <button key={c.id} onClick={() => setSelectedId(c.id)} style={{ background: selectedId === c.id ? `${c.color}22` : "#111118", border: `1px solid ${selectedId === c.id ? c.color : "#2a2a35"}`, color: selectedId === c.id ? c.color : "#666", borderRadius: 6, padding: "8px 16px", cursor: "pointer", fontSize: 12, fontWeight: selectedId === c.id ? 700 : 400 }}>{c.short}<span style={{ marginLeft: 6, opacity: 0.7 }}>{count}</span></button>; })}</div><div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12, marginBottom: 20 }}>{[{ label: "Total Events", value: cEvents.length }, { label: "Early State Visits", value: cEvents.filter(e => EARLY_STATES.includes(e.location_state)).length }, { label: "Press Clips", value: cEvents.reduce((s, e) => s + (e.press_clips?.length || 0), 0) }, { label: "States Visited", value: new Set(cEvents.map(e => e.location_state).filter(Boolean)).size }].map(s => <div key={s.label} style={{ ...S.statCard, borderTop: `2px solid ${candidate.color}` }}><div style={{ fontSize: 24, fontWeight: 800, color: candidate.color }}>{s.value}</div><div style={{ fontSize: 11, color: "#555", fontFamily: "monospace", marginTop: 4 }}>{s.label.toUpperCase()}</div></div>)}</div>{stateCounts.length > 0 && <div style={{ ...S.card, marginBottom: 20 }}><div style={{ fontSize: 12, color: "#555", fontFamily: "monospace", marginBottom: 12 }}>WHERE THEY'VE BEEN</div><div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>{stateCounts.map(([state, count]) => <div key={state} style={{ background: EARLY_STATES.includes(state) ? `${candidate.color}22` : "#1a1a22", border: `1px solid ${EARLY_STATES.includes(state) ? candidate.color + "55" : "#2a2a35"}`, borderRadius: 6, padding: "8px 14px", textAlign: "center" }}><div style={{ fontSize: 16, fontWeight: 700, color: EARLY_STATES.includes(state) ? candidate.color : "#e8e8f0" }}>{state}</div><div style={{ fontSize: 11, color: "#555" }}>{count} event{count !== 1 ? "s" : ""}</div>{EARLY_STATES.includes(state) && <div style={{ fontSize: 10, color: candidate.color, marginTop: 2 }}>EARLY STATE</div>}</div>)}</div></div>}<div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}><div style={{ fontSize: 13, color: "#aaa", fontWeight: 600 }}>{candidate.name} · {cEvents.length} event{cEvents.length !== 1 ? "s" : ""}</div><button onClick={onAdd} style={S.btn(candidate.color)}>+ Add Event</button></div>{cEvents.length === 0 ? <div style={{ color: "#444", fontSize: 13 }}>No events tracked for {candidate.name} yet.</div> : cEvents.map(e => <EventCard key={e.id} event={e} onEdit={onEdit} onDelete={onDelete} />)}</div>;
+  return <div>
+    <div style={{ marginBottom: 16 }}><USMap events={events} filterCandidate={selectedId} /></div>
+    <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 24 }}>{CANDIDATES.map(c => { const count = events.filter(e => e.candidate === c.id).length; return <button key={c.id} onClick={() => setSelectedId(c.id)} style={{ background: selectedId === c.id ? `${c.color}22` : "#111118", border: `1px solid ${selectedId === c.id ? c.color : "#2a2a35"}`, color: selectedId === c.id ? c.color : "#666", borderRadius: 6, padding: "8px 16px", cursor: "pointer", fontSize: 12, fontWeight: selectedId === c.id ? 700 : 400 }}>{c.short}<span style={{ marginLeft: 6, opacity: 0.7 }}>{count}</span></button>; })}</div>
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12, marginBottom: 20 }}>{[{ label: "Total Events", value: cEvents.length }, { label: "Early State Visits", value: cEvents.filter(e => EARLY_STATES.includes(e.location_state)).length }, { label: "Press Clips", value: cEvents.reduce((s, e) => s + (e.press_clips?.length || 0), 0) }, { label: "States Visited", value: new Set(cEvents.map(e => e.location_state).filter(Boolean)).size }].map(s => <div key={s.label} style={{ ...S.statCard, borderTop: `2px solid ${candidate.color}` }}><div style={{ fontSize: 24, fontWeight: 800, color: candidate.color }}>{s.value}</div><div style={{ fontSize: 11, color: "#555", fontFamily: "monospace", marginTop: 4 }}>{s.label.toUpperCase()}</div></div>)}</div>
+    {stateCounts.length > 0 && <div style={{ ...S.card, marginBottom: 20 }}><div style={{ fontSize: 12, color: "#555", fontFamily: "monospace", marginBottom: 12 }}>WHERE THEY'VE BEEN</div><div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>{stateCounts.map(([state, count]) => <div key={state} style={{ background: EARLY_STATES.includes(state) ? `${candidate.color}22` : "#1a1a22", border: `1px solid ${EARLY_STATES.includes(state) ? candidate.color + "55" : "#2a2a35"}`, borderRadius: 6, padding: "8px 14px", textAlign: "center" }}><div style={{ fontSize: 16, fontWeight: 700, color: EARLY_STATES.includes(state) ? candidate.color : "#e8e8f0" }}>{state}</div><div style={{ fontSize: 11, color: "#555" }}>{count}</div>{EARLY_STATES.includes(state) && <div style={{ fontSize: 10, color: candidate.color }}>EARLY</div>}</div>)}</div></div>}
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}><div style={{ fontSize: 13, color: "#aaa", fontWeight: 600 }}>{candidate.name} · {cEvents.length} events</div><button onClick={onAdd} style={S.btn(candidate.color)}>+ Add Event</button></div>
+    {cEvents.length === 0 ? <div style={{ color: "#444", fontSize: 13 }}>No events tracked yet.</div> : cEvents.map(e => <EventCard key={e.id} event={e} onEdit={onEdit} onDelete={onDelete} />)}
+  </div>;
 }
 
 function ByStateTab({ events, onEdit, onDelete }) {
@@ -114,15 +348,22 @@ function ByStateTab({ events, onEdit, onDelete }) {
   const activeStates = ALL_STATES.filter(s => stateCounts[s]);
   const displayStates = showOnlyActive ? activeStates : ALL_STATES;
   const stateEvents = useMemo(() => selectedState ? events.filter(e => e.location_state === selectedState).sort((a,b) => b.date.localeCompare(a.date)) : [], [events, selectedState]);
-  return <div><div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}><div style={{ fontSize: 12, color: "#555", fontFamily: "monospace" }}>{events.filter(e => e.location_state).length} events across {activeStates.length} states</div><button onClick={() => setShowOnlyActive(v => !v)} style={S.btnOutline}>{showOnlyActive ? "Show all 50 states" : "Show active only"}</button></div><div style={{ ...S.card, marginBottom: 24 }}><div style={{ fontSize: 12, color: "#555", fontFamily: "monospace", marginBottom: 16 }}>CLICK A STATE TO SEE EVENTS · <span style={{ color: "#2a9d8f" }}>★ = early primary state</span></div><div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>{displayStates.map(state => { const count = stateCounts[state] || 0; const isEarly = EARLY_STATES.includes(state); const isSelected = selectedState === state; return <button key={state} onClick={() => setSelectedState(isSelected ? null : state)} disabled={count === 0} style={{ background: isSelected ? (isEarly ? "#2a9d8f33" : "#1a6bff22") : count > 0 ? "#1a1a22" : "#0d0d14", border: `1px solid ${isSelected ? (isEarly ? "#2a9d8f" : "#1a6bff") : isEarly && count > 0 ? "#2a9d8f66" : count > 0 ? "#2a2a35" : "#161616"}`, borderRadius: 6, padding: "8px 10px", cursor: count > 0 ? "pointer" : "default", minWidth: 52, textAlign: "center" }}><div style={{ fontSize: 12, fontWeight: 700, color: isSelected ? (isEarly ? "#2a9d8f" : "#1a6bff") : count > 0 ? "#e8e8f0" : "#2a2a35" }}>{isEarly ? "★ " : ""}{state}</div><div style={{ fontSize: 10, color: count > 0 ? "#888" : "#222", fontFamily: "monospace" }}>{count > 0 ? count : "—"}</div></button>; })}</div></div>{selectedState && <div><div style={{ fontSize: 16, fontWeight: 700, color: "#fff", marginBottom: 14, display: "flex", alignItems: "center", gap: 10 }}><span style={S.badge(EARLY_STATES.includes(selectedState) ? "#2a9d8f" : "#1a6bff")}>{selectedState}</span><span>{STATE_NAMES[selectedState]}</span>{EARLY_STATES.includes(selectedState) && <span style={{ fontSize: 11, color: "#2a9d8f", fontFamily: "monospace" }}>EARLY PRIMARY STATE</span>}<span style={{ fontSize: 12, color: "#555", fontFamily: "monospace" }}>{stateEvents.length} event{stateEvents.length !== 1 ? "s" : ""}</span></div>{stateEvents.map(e => <EventCard key={e.id} event={e} onEdit={onEdit} onDelete={onDelete} />)}</div>}{!selectedState && <div style={{ color: "#444", fontSize: 13, textAlign: "center", padding: "40px 0" }}>Select a state above to see its events</div>}</div>;
+  return <div>
+    <div style={{ marginBottom: 16 }}><USMap events={events} /></div>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}><div style={{ fontSize: 12, color: "#555", fontFamily: "monospace" }}>{events.filter(e => e.location_state).length} events across {activeStates.length} states</div><button onClick={() => setShowOnlyActive(v => !v)} style={S.btnOutline}>{showOnlyActive ? "Show all 50 states" : "Show active only"}</button></div>
+    <div style={{ ...S.card, marginBottom: 24 }}><div style={{ fontSize: 12, color: "#555", fontFamily: "monospace", marginBottom: 16 }}>CLICK A STATE · <span style={{ color: "#2a9d8f" }}>★ = early primary state</span></div><div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>{displayStates.map(state => { const count = stateCounts[state] || 0; const isEarly = EARLY_STATES.includes(state); const isSelected = selectedState === state; return <button key={state} onClick={() => setSelectedState(isSelected ? null : state)} disabled={count === 0} style={{ background: isSelected ? "#1a6bff22" : count > 0 ? "#1a1a22" : "#0d0d14", border: `1px solid ${isSelected ? "#1a6bff" : isEarly && count > 0 ? "#2a9d8f66" : count > 0 ? "#2a2a35" : "#161616"}`, borderRadius: 6, padding: "8px 10px", cursor: count > 0 ? "pointer" : "default", minWidth: 52, textAlign: "center" }}><div style={{ fontSize: 12, fontWeight: 700, color: count > 0 ? "#e8e8f0" : "#2a2a35" }}>{isEarly ? "★ " : ""}{state}</div><div style={{ fontSize: 10, color: count > 0 ? "#888" : "#222", fontFamily: "monospace" }}>{count > 0 ? count : "—"}</div></button>; })}</div></div>
+    {selectedState && <div><div style={{ fontSize: 16, fontWeight: 700, color: "#fff", marginBottom: 14, display: "flex", gap: 10, alignItems: "center" }}><span style={S.badge(EARLY_STATES.includes(selectedState) ? "#2a9d8f" : "#1a6bff")}>{selectedState}</span><span>{STATE_NAMES[selectedState]}</span>{EARLY_STATES.includes(selectedState) && <span style={{ fontSize: 11, color: "#2a9d8f", fontFamily: "monospace" }}>EARLY STATE</span>}<span style={{ fontSize: 12, color: "#555" }}>{stateEvents.length} events</span></div>{stateEvents.map(e => <EventCard key={e.id} event={e} onEdit={onEdit} onDelete={onDelete} />)}</div>}
+    {!selectedState && <div style={{ color: "#444", fontSize: 13, textAlign: "center", padding: "40px 0" }}>Select a state above to see its events</div>}
+  </div>;
 }
 
 function PressClipsTab({ events }) {
   const [filterCandidate, setFilterCandidate] = useState("all");
-  const allClips = useMemo(() => { const clips = []; events.forEach(e => { if (filterCandidate !== "all" && e.candidate !== filterCandidate) return; (e.press_clips || []).forEach(clip => { clips.push({ ...clip, candidate: e.candidate, eventTitle: e.title, eventDate: e.date }); }); }); return clips.sort((a, b) => (b.date || "").localeCompare(a.date || "")); }, [events, filterCandidate]);
-  return <div><div style={{ display: "flex", gap: 10, marginBottom: 20, alignItems: "center" }}><select value={filterCandidate} onChange={e => setFilterCandidate(e.target.value)} style={{ ...S.input, width: "auto" }}><option value="all">All Candidates</option>{CANDIDATES.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}</select><div style={{ fontSize: 12, color: "#555", fontFamily: "monospace" }}>{allClips.length} press clips</div></div>{allClips.length === 0 ? <div style={{ color: "#444", fontSize: 13 }}>No press clips tracked yet.</div> : allClips.map((clip, i) => { const c = CANDIDATE_MAP[clip.candidate]; return <div key={i} style={{ ...S.card, borderLeft: `3px solid ${c?.color || "#333"}` }}><div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 6, flexWrap: "wrap" }}><CandidateBadge id={clip.candidate} /><span style={{ fontSize: 11, color: "#555", fontFamily: "monospace" }}>{clip.date || clip.eventDate}</span><span style={{ fontSize: 11, color: "#666" }}>via: {clip.eventTitle}</span></div><div style={{ fontSize: 13, color: "#888", marginBottom: 4, fontWeight: 600 }}>{clip.outlet}</div>{clip.url ? <a href={clip.url} target="_blank" rel="noopener noreferrer" style={{ fontSize: 14, color: "#6a9bff", textDecoration: "none" }}>{clip.headline}</a> : <div style={{ fontSize: 14, color: "#ccc" }}>{clip.headline}</div>}</div>; })}</div>;
+  const allClips = useMemo(() => { const clips = []; events.forEach(e => { if (filterCandidate !== "all" && e.candidate !== filterCandidate) return; (e.press_clips || []).forEach(clip => clips.push({ ...clip, candidate: e.candidate, eventTitle: e.title, eventDate: e.date })); }); return clips.sort((a, b) => (b.date || "").localeCompare(a.date || "")); }, [events, filterCandidate]);
+  return <div><div style={{ display: "flex", gap: 10, marginBottom: 20, alignItems: "center" }}><select value={filterCandidate} onChange={e => setFilterCandidate(e.target.value)} style={{ ...S.input, width: "auto" }}><option value="all">All Candidates</option>{CANDIDATES.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}</select><div style={{ fontSize: 12, color: "#555", fontFamily: "monospace" }}>{allClips.length} press clips</div></div>{allClips.length === 0 ? <div style={{ color: "#444", fontSize: 13 }}>No press clips yet.</div> : allClips.map((clip, i) => { const c = CANDIDATE_MAP[clip.candidate]; return <div key={i} style={{ ...S.card, borderLeft: `3px solid ${c?.color || "#333"}` }}><div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 6, flexWrap: "wrap" }}><CandidateBadge id={clip.candidate} /><span style={{ fontSize: 11, color: "#555", fontFamily: "monospace" }}>{clip.date || clip.eventDate}</span><span style={{ fontSize: 11, color: "#666" }}>via: {clip.eventTitle}</span></div><div style={{ fontSize: 13, color: "#888", marginBottom: 4, fontWeight: 600 }}>{clip.outlet}</div>{clip.url ? <a href={clip.url} target="_blank" rel="noopener noreferrer" style={{ fontSize: 14, color: "#6a9bff", textDecoration: "none" }}>{clip.headline}</a> : <div style={{ fontSize: 14, color: "#ccc" }}>{clip.headline}</div>}</div>; })}</div>;
 }
 
+// ── MAIN APP ───────────────────────────────────────────────────────────────
 export default function App() {
   const [authed, setAuthed] = useState(() => sessionStorage.getItem("et_auth") === "1");
   const [pwInput, setPwInput] = useState("");
@@ -139,11 +380,14 @@ export default function App() {
     fetch("/events.json").then(r => r.json()).then(data => { setFetchedEvents(data.events || []); setLastUpdated(data.last_updated || ""); }).catch(() => {}).finally(() => setLoading(false));
   }, []);
 
-  const allEvents = useMemo(() => { const fetchedIds = new Set(fetchedEvents.map(e => e.id)); const unique = [...fetchedEvents, ...manualEvents.filter(e => !fetchedIds.has(e.id))]; return unique.sort((a, b) => b.date.localeCompare(a.date)); }, [fetchedEvents, manualEvents]);
+  const allEvents = useMemo(() => {
+    const fetchedIds = new Set(fetchedEvents.map(e => e.id));
+    return [...fetchedEvents, ...manualEvents.filter(e => !fetchedIds.has(e.id))].sort((a, b) => b.date.localeCompare(a.date));
+  }, [fetchedEvents, manualEvents]);
 
   function handleLogin() { if (pwInput === PASSWORD) { sessionStorage.setItem("et_auth", "1"); setAuthed(true); } else { setPwError(true); setPwInput(""); } }
-  function handleSaveEvent(event) { const updated = manualEvents.find(e => e.id === event.id) ? manualEvents.map(e => e.id === event.id ? event : e) : [...manualEvents, event]; setManualEvents(updated); saveManualEvents(updated); if (fetchedEvents.find(e => e.id === event.id)) { setFetchedEvents(prev => prev.map(e => e.id === event.id ? event : e)); } setEditingEvent(null); setShowForm(false); }
-  function handleDeleteEvent(id) { if (!confirm("Delete this event?")) return; const updatedManual = manualEvents.filter(e => e.id !== id); setManualEvents(updatedManual); saveManualEvents(updatedManual); setFetchedEvents(prev => prev.filter(e => e.id !== id)); }
+  function handleSaveEvent(event) { const updated = manualEvents.find(e => e.id === event.id) ? manualEvents.map(e => e.id === event.id ? event : e) : [...manualEvents, event]; setManualEvents(updated); saveManualEvents(updated); if (fetchedEvents.find(e => e.id === event.id)) setFetchedEvents(prev => prev.map(e => e.id === event.id ? event : e)); setEditingEvent(null); setShowForm(false); }
+  function handleDeleteEvent(id) { if (!confirm("Delete this event?")) return; const u = manualEvents.filter(e => e.id !== id); setManualEvents(u); saveManualEvents(u); setFetchedEvents(prev => prev.filter(e => e.id !== id)); }
   function handleEdit(event) { setEditingEvent(event); setShowForm(true); window.scrollTo({ top: 0, behavior: "smooth" }); }
   function handleAddNew() { setEditingEvent(blankEvent()); setShowForm(true); window.scrollTo({ top: 0, behavior: "smooth" }); }
 
@@ -161,19 +405,21 @@ export default function App() {
 
   return (
     <div style={S.app}>
-      <div style={S.header}><div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}><div><h1 style={S.title}>2028 Democratic Primary · Event Tracker</h1><div style={S.subtitle}>{loading ? "Loading…" : `${allEvents.length} events tracked · ${lastUpdated ? "Updated " + lastUpdated.slice(0, 10) : "auto-updated daily"}`}</div></div><button onClick={handleAddNew} style={S.btn()}>+ Add Event</button></div></div>
+      <div style={S.header}><div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}><div><h1 style={S.title}>2028 Democratic Primary · Event Tracker</h1><div style={S.subtitle}>{loading ? "Loading…" : `${allEvents.length} events · ${lastUpdated ? "Updated " + lastUpdated.slice(0, 10) : "auto-updated daily"}`}</div></div><button onClick={handleAddNew} style={S.btn()}>+ Add Event</button></div></div>
       <div style={S.tabs}>{TABS.map(tab => <button key={tab} onClick={() => setActiveTab(tab)} style={S.tab(activeTab === tab)}>{tab}</button>)}</div>
       <div style={S.body}>
         {showForm && editingEvent && <EventForm event={editingEvent} onSave={handleSaveEvent} onCancel={() => { setShowForm(false); setEditingEvent(null); }} />}
         {loading ? <div style={{ color: "#555", fontFamily: "monospace" }}>Loading events…</div>
-          : activeTab === "Overview"     ? <OverviewTab events={allEvents} />
+          : activeTab === "Overview"     ? <OverviewTab events={allEvents} onEdit={handleEdit} onDelete={handleDeleteEvent} />
           : activeTab === "All Events"   ? <AllEventsTab events={allEvents} onEdit={handleEdit} onDelete={handleDeleteEvent} onAdd={handleAddNew} />
           : activeTab === "By Candidate" ? <ByCandidateTab events={allEvents} onEdit={handleEdit} onDelete={handleDeleteEvent} onAdd={handleAddNew} />
           : activeTab === "By State"     ? <ByStateTab events={allEvents} onEdit={handleEdit} onDelete={handleDeleteEvent} />
           : activeTab === "Press Clips"  ? <PressClipsTab events={allEvents} />
           : null}
       </div>
-      <div style={{ padding: "16px 36px 32px", borderTop: "1px solid #1a1a22", marginTop: 8 }}><div style={{ fontSize: 11, color: "#444", fontFamily: "monospace" }}>Events auto-fetched daily via GitHub Actions + Anthropic API · Manual edits stored in browser localStorage · No candidates formally declared as of March 2026</div></div>
+      <div style={{ padding: "16px 36px 32px", borderTop: "1px solid #1a1a22", marginTop: 8 }}>
+        <div style={{ fontSize: 11, color: "#444", fontFamily: "monospace" }}>Events auto-fetched daily via GitHub Actions · Manual edits stored locally · No candidates formally declared as of March 2026</div>
+      </div>
     </div>
   );
 }
