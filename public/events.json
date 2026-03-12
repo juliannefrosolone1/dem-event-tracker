@@ -1,0 +1,106 @@
+{
+  "last_updated": "2026-03-12T00:00:00Z",
+  "meta": {
+    "source": "auto-fetched daily via GitHub Actions + Anthropic API with web search"
+  },
+  "events": [
+    {
+      "id": "booker-2026-03-05-senate-floor",
+      "candidate": "booker",
+      "date": "2026-03-05",
+      "event_type": "speech",
+      "title": "Extended Senate Floor Speech",
+      "location_city": "Washington",
+      "location_state": "DC",
+      "location_display": "Washington, DC",
+      "venue": "U.S. Senate Chamber",
+      "description": "Sen. Booker delivered a lengthy Senate floor speech drawing national attention and broad media coverage.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Politico",
+          "headline": "Booker's marathon Senate floor speech draws national attention",
+          "url": "",
+          "date": "2026-03-05"
+        }
+      ]
+    },
+    {
+      "id": "newsom-2026-02-20-iowa-dnc",
+      "candidate": "newsom",
+      "date": "2026-02-20",
+      "event_type": "speech",
+      "title": "Iowa Democratic Party Fundraiser Keynote",
+      "location_city": "Des Moines",
+      "location_state": "IA",
+      "location_display": "Des Moines, IA",
+      "venue": "Iowa Events Center",
+      "description": "Gov. Newsom headlined the Iowa Democratic Party's annual fundraising dinner, drawing speculation about 2028 ambitions.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Des Moines Register",
+          "headline": "Newsom headlines Iowa Dems dinner, fuels 2028 speculation",
+          "url": "",
+          "date": "2026-02-21"
+        }
+      ]
+    },
+    {
+      "id": "khanna-2026-02-15-nh-townhall",
+      "candidate": "khanna",
+      "date": "2026-02-15",
+      "event_type": "town_hall",
+      "title": "New Hampshire Town Hall",
+      "location_city": "Manchester",
+      "location_state": "NH",
+      "location_display": "Manchester, NH",
+      "venue": "Saint Anselm College",
+      "description": "Rep. Khanna held a town hall at Saint Anselm College in Manchester, a traditional stop for prospective presidential candidates.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "New Hampshire Union Leader",
+          "headline": "Khanna visits Saint Anselm in possible 2028 preview",
+          "url": "",
+          "date": "2026-02-16"
+        }
+      ]
+    },
+    {
+      "id": "murphy-2026-03-01-msnbc",
+      "candidate": "murphy",
+      "date": "2026-03-01",
+      "event_type": "media_appearance",
+      "title": "MSNBC Morning Joe Interview",
+      "location_city": "New York",
+      "location_state": "NY",
+      "location_display": "New York, NY",
+      "venue": "MSNBC Studios",
+      "description": "Sen. Murphy discussed Democratic party strategy and the 2028 primary landscape on MSNBC's Morning Joe.",
+      "significance": "medium",
+      "press_clips": [
+        {
+          "outlet": "MSNBC",
+          "headline": "Chris Murphy on Democratic Party's path forward",
+          "url": "",
+          "date": "2026-03-01"
+        }
+      ]
+    },
+    {
+      "id": "shapiro-2026-02-28-sc-dnc",
+      "candidate": "shapiro",
+      "date": "2026-02-28",
+      "event_type": "travel",
+      "title": "South Carolina Democratic Party Visit",
+      "location_city": "Columbia",
+      "location_state": "SC",
+      "location_display": "Columbia, SC",
+      "venue": "South Carolina Democratic Party HQ",
+      "description": "Gov. Shapiro met with South Carolina Democratic Party leadership, a key early primary state.",
+      "significance": "high",
+      "press_clips": []
+    }
+  ]
+}
