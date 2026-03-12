@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-12T00:00:00Z",
+  "last_updated": "2026-03-12T17:02:26Z",
   "meta": {
     "source": "auto-fetched daily via GitHub Actions + Anthropic API with web search"
   },
@@ -24,6 +24,41 @@
           "date": "2026-03-05"
         }
       ]
+    },
+    {
+      "id": "murphy-2026-03-01-msnbc",
+      "candidate": "murphy",
+      "date": "2026-03-01",
+      "event_type": "media_appearance",
+      "title": "MSNBC Morning Joe Interview",
+      "location_city": "New York",
+      "location_state": "NY",
+      "location_display": "New York, NY",
+      "venue": "MSNBC Studios",
+      "description": "Sen. Murphy discussed Democratic party strategy and the 2028 primary landscape on MSNBC's Morning Joe.",
+      "significance": "medium",
+      "press_clips": [
+        {
+          "outlet": "MSNBC",
+          "headline": "Chris Murphy on Democratic Party's path forward",
+          "url": "",
+          "date": "2026-03-01"
+        }
+      ]
+    },
+    {
+      "id": "shapiro-2026-02-28-sc-dnc",
+      "candidate": "shapiro",
+      "date": "2026-02-28",
+      "event_type": "travel",
+      "title": "South Carolina Democratic Party Visit",
+      "location_city": "Columbia",
+      "location_state": "SC",
+      "location_display": "Columbia, SC",
+      "venue": "South Carolina Democratic Party HQ",
+      "description": "Gov. Shapiro met with South Carolina Democratic Party leadership, a key early primary state.",
+      "significance": "high",
+      "press_clips": []
     },
     {
       "id": "newsom-2026-02-20-iowa-dnc",
@@ -66,41 +101,6 @@
           "date": "2026-02-16"
         }
       ]
-    },
-    {
-      "id": "murphy-2026-03-01-msnbc",
-      "candidate": "murphy",
-      "date": "2026-03-01",
-      "event_type": "media_appearance",
-      "title": "MSNBC Morning Joe Interview",
-      "location_city": "New York",
-      "location_state": "NY",
-      "location_display": "New York, NY",
-      "venue": "MSNBC Studios",
-      "description": "Sen. Murphy discussed Democratic party strategy and the 2028 primary landscape on MSNBC's Morning Joe.",
-      "significance": "medium",
-      "press_clips": [
-        {
-          "outlet": "MSNBC",
-          "headline": "Chris Murphy on Democratic Party's path forward",
-          "url": "",
-          "date": "2026-03-01"
-        }
-      ]
-    },
-    {
-      "id": "shapiro-2026-02-28-sc-dnc",
-      "candidate": "shapiro",
-      "date": "2026-02-28",
-      "event_type": "travel",
-      "title": "South Carolina Democratic Party Visit",
-      "location_city": "Columbia",
-      "location_state": "SC",
-      "location_display": "Columbia, SC",
-      "venue": "South Carolina Democratic Party HQ",
-      "description": "Gov. Shapiro met with South Carolina Democratic Party leadership, a key early primary state.",
-      "significance": "high",
-      "press_clips": []
     }
   ]
 }
