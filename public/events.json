@@ -1,740 +1,1306 @@
 {
-  "last_updated": "2026-03-12T00:00:00Z",
-  "meta": { "source": "curated seed data + daily auto-fetch" },
+  "last_updated": "2026-03-13T11:48:26Z",
+  "meta": {
+    "source": "curated seed data + daily auto-fetch"
+  },
   "events": [
     {
-      "id": "booker-2025-03-06-senate-filibuster",
-      "candidate": "booker", "date": "2025-03-06", "event_type": "speech",
-      "title": "Record-Breaking 25-Hour Senate Filibuster",
-      "location_city": "Washington", "location_state": "DC", "location_display": "Washington, DC",
-      "venue": "U.S. Senate Chamber",
-      "description": "Sen. Booker delivered a record-breaking filibuster speech on the Senate floor opposing Trump administration cuts to Medicaid and social programs. The speech went viral nationally.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "New York Times", "headline": "Cory Booker Filibusters for 25 Hours in Senate", "url": "", "date": "2025-03-07" },
-        { "outlet": "CNN", "headline": "Booker ends record-setting filibuster", "url": "", "date": "2025-03-07" }
-      ]
-    },
-    {
-      "id": "booker-2025-04-las-vegas-rally",
-      "candidate": "booker", "date": "2025-04-12", "event_type": "rally",
-      "title": "Las Vegas Progressive Rally",
-      "location_city": "Las Vegas", "location_state": "NV", "location_display": "Las Vegas, NV",
-      "venue": "UNLV Thomas & Mack Center",
-      "description": "Sen. Booker headlined a major progressive rally in Las Vegas drawing thousands, with strong turnout from Nevada labor unions and progressive activists.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Las Vegas Sun", "headline": "Booker draws massive crowd at Vegas rally", "url": "", "date": "2025-04-12" }
-      ]
-    },
-    {
-      "id": "booker-2025-01-naacp-mlk",
-      "candidate": "booker", "date": "2025-01-15", "event_type": "speech",
-      "title": "MLK Day NAACP Keynote",
-      "location_city": "Washington", "location_state": "DC", "location_display": "Washington, DC",
-      "venue": "NAACP National Headquarters",
-      "description": "Sen. Booker delivered a keynote address invoking King's legacy and calling for renewed civil rights advocacy.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "NBC News", "headline": "Booker invokes King's legacy in MLK Day address", "url": "", "date": "2025-01-15" }
-      ]
-    },
-    {
-      "id": "booker-2025-02-south-carolina",
-      "candidate": "booker", "date": "2025-02-08", "event_type": "travel",
-      "title": "South Carolina Democratic Party Dinner",
-      "location_city": "Columbia", "location_state": "SC", "location_display": "Columbia, SC",
-      "venue": "South Carolina Democratic Party HQ",
-      "description": "Sen. Booker headlined the SC Democratic Party dinner, meeting with local party leaders in a key early primary state.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "The State", "headline": "Booker headlines SC Dems dinner", "url": "", "date": "2025-02-08" }
-      ]
-    },
-    {
-      "id": "booker-2025-05-iowa-town-hall",
-      "candidate": "booker", "date": "2025-05-03", "event_type": "town_hall",
-      "title": "Iowa Town Hall on Economic Justice",
-      "location_city": "Des Moines", "location_state": "IA", "location_display": "Des Moines, IA",
-      "venue": "Drake University",
-      "description": "Sen. Booker held a town hall at Drake University focused on economic justice and the future of the Democratic Party, drawing a packed crowd.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Des Moines Register", "headline": "Booker makes Iowa stop with town hall at Drake", "url": "", "date": "2025-05-03" }
-      ]
-    },
-    {
-      "id": "booker-2025-06-new-hampshire",
-      "candidate": "booker", "date": "2025-06-14", "event_type": "travel",
-      "title": "New Hampshire Democratic Party Fundraiser",
-      "location_city": "Manchester", "location_state": "NH", "location_display": "Manchester, NH",
-      "venue": "NH Democratic Party HQ",
-      "description": "Sen. Booker traveled to New Hampshire for a Democratic Party fundraiser, continuing his early primary state outreach.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "New Hampshire Union Leader", "headline": "Booker visits NH amid growing 2028 buzz", "url": "", "date": "2025-06-14" }
-      ]
-    },
-    {
-      "id": "harris-2025-01-20-certification",
-      "candidate": "harris", "date": "2025-01-06", "event_type": "other",
-      "title": "Presided Over Electoral College Certification",
-      "location_city": "Washington", "location_state": "DC", "location_display": "Washington, DC",
-      "venue": "U.S. Capitol",
-      "description": "VP Harris presided over the certification of her own electoral loss — a historic moment watched nationally.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Associated Press", "headline": "Harris presides over certification of her own defeat", "url": "", "date": "2025-01-06" }
-      ]
-    },
-    {
-      "id": "harris-2025-02-california-convention",
-      "candidate": "harris", "date": "2025-02-20", "event_type": "speech",
-      "title": "California Democratic Party Convention Speech",
-      "location_city": "Sacramento", "location_state": "CA", "location_display": "Sacramento, CA",
-      "venue": "Sacramento Convention Center",
-      "description": "Former VP Harris addressed the California Democratic Party convention to a standing ovation, hinting at continued political involvement.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Los Angeles Times", "headline": "Harris gets hero's welcome at CA Dems convention", "url": "", "date": "2025-02-20" }
-      ]
-    },
-    {
-      "id": "harris-2025-03-howard-speech",
-      "candidate": "harris", "date": "2025-03-01", "event_type": "speech",
-      "title": "Howard University Address",
-      "location_city": "Washington", "location_state": "DC", "location_display": "Washington, DC",
-      "venue": "Howard University",
-      "description": "Former VP Harris delivered her first major post-election speech at her alma mater, addressing democracy and the party's future.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "NBC News", "headline": "Harris delivers first major post-election speech at Howard", "url": "", "date": "2025-03-01" }
-      ]
-    },
-    {
-      "id": "harris-2025-06-book-tour-ny",
-      "candidate": "harris", "date": "2025-06-03", "event_type": "other",
-      "title": "Book Tour — New York City",
-      "location_city": "New York", "location_state": "NY", "location_display": "New York, NY",
-      "venue": "92nd Street Y",
-      "description": "Harris launched her book tour in New York City, drawing large crowds and generating significant national media coverage about her future political plans.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "New York Times", "headline": "Harris draws large crowds on book tour, future plans unclear", "url": "", "date": "2025-06-03" }
-      ]
-    },
-    {
-      "id": "harris-2025-06-book-tour-chicago",
-      "candidate": "harris", "date": "2025-06-05", "event_type": "other",
-      "title": "Book Tour — Chicago",
-      "location_city": "Chicago", "location_state": "IL", "location_display": "Chicago, IL",
-      "venue": "United Center",
-      "description": "Harris drew a massive crowd of over 10,000 at United Center for a book tour stop, her largest event since the 2024 election.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Chicago Tribune", "headline": "Harris packs United Center on book tour stop", "url": "", "date": "2025-06-05" }
-      ]
-    },
-    {
-      "id": "harris-2025-06-book-tour-atlanta",
-      "candidate": "harris", "date": "2025-06-08", "event_type": "other",
-      "title": "Book Tour — Atlanta",
-      "location_city": "Atlanta", "location_state": "GA", "location_display": "Atlanta, GA",
-      "venue": "Fox Theatre",
-      "description": "Harris continued her national book tour with a sold-out stop in Atlanta, a critical early primary state, energizing Georgia Democrats.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Atlanta Journal-Constitution", "headline": "Harris brings book tour to sold-out Atlanta show", "url": "", "date": "2025-06-08" }
-      ]
-    },
-    {
-      "id": "harris-2025-06-book-tour-houston",
-      "candidate": "harris", "date": "2025-06-10", "event_type": "other",
-      "title": "Book Tour — Houston",
-      "location_city": "Houston", "location_state": "TX", "location_display": "Houston, TX",
-      "venue": "Toyota Center",
-      "description": "Harris drew a large crowd in Houston as part of her national book tour, energizing Texas Democrats.",
-      "significance": "medium",
-      "press_clips": [
-        { "outlet": "Houston Chronicle", "headline": "Harris brings book tour to Houston", "url": "", "date": "2025-06-10" }
-      ]
-    },
-    {
-      "id": "harris-2025-06-book-tour-la",
-      "candidate": "harris", "date": "2025-06-13", "event_type": "other",
-      "title": "Book Tour — Los Angeles",
-      "location_city": "Los Angeles", "location_state": "CA", "location_display": "Los Angeles, CA",
-      "venue": "Crypto.com Arena",
-      "description": "Harris concluded a major leg of her book tour in Los Angeles with a massive sold-out event drawing tens of thousands of supporters.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Los Angeles Times", "headline": "Harris closes book tour leg with massive LA crowd", "url": "", "date": "2025-06-13" }
-      ]
-    },
-    {
-      "id": "harris-2025-07-iowa-visit",
-      "candidate": "harris", "date": "2025-07-20", "event_type": "travel",
-      "title": "Iowa Democratic Fundraiser",
-      "location_city": "Des Moines", "location_state": "IA", "location_display": "Des Moines, IA",
-      "venue": "Iowa Democratic Party",
-      "description": "Harris visited Iowa for a Democratic Party fundraiser, her first visit to the early primary state since leaving office, sparking intense 2028 speculation.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Des Moines Register", "headline": "Harris makes first Iowa visit since leaving office", "url": "", "date": "2025-07-20" }
-      ]
-    },
-    {
-      "id": "aoc-2025-01-20-inauguration",
-      "candidate": "aoc", "date": "2025-01-20", "event_type": "other",
-      "title": "Inauguration Day Protest Remarks",
-      "location_city": "Washington", "location_state": "DC", "location_display": "Washington, DC",
-      "venue": "Capitol Hill",
-      "description": "Rep. AOC spoke at protests on Inauguration Day, positioning herself as a leading opposition voice.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "The Guardian", "headline": "AOC rallies protesters on inauguration day", "url": "", "date": "2025-01-20" }
-      ]
-    },
-    {
-      "id": "aoc-2025-02-bronx-town-hall",
-      "candidate": "aoc", "date": "2025-02-10", "event_type": "town_hall",
-      "title": "Bronx Town Hall on Federal Cuts",
-      "location_city": "Bronx", "location_state": "NY", "location_display": "Bronx, NY",
-      "venue": "Bronx Community College",
-      "description": "AOC held a packed town hall addressing federal program cuts, with overflow crowds and national live stream.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "New York Daily News", "headline": "AOC town hall draws overflow crowd in Bronx", "url": "", "date": "2025-02-10" }
-      ]
-    },
-    {
-      "id": "aoc-2025-03-nevada-rally",
-      "candidate": "aoc", "date": "2025-03-05", "event_type": "rally",
-      "title": "Nevada Progressive Rally",
-      "location_city": "Las Vegas", "location_state": "NV", "location_display": "Las Vegas, NV",
-      "venue": "University of Nevada Las Vegas",
-      "description": "AOC headlined a progressive rally at UNLV drawing thousands, a key early primary state visit.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Las Vegas Review-Journal", "headline": "AOC draws thousands at UNLV rally", "url": "", "date": "2025-03-05" },
-        { "outlet": "Politico", "headline": "AOC's Nevada visit fuels 2028 speculation", "url": "", "date": "2025-03-06" }
-      ]
-    },
-    {
-      "id": "aoc-2025-04-iowa-visit",
-      "candidate": "aoc", "date": "2025-04-18", "event_type": "travel",
-      "title": "Iowa Progressive Organizing Event",
-      "location_city": "Iowa City", "location_state": "IA", "location_display": "Iowa City, IA",
-      "venue": "University of Iowa",
-      "description": "AOC visited Iowa City for a progressive organizing event at the University of Iowa, drawing a massive student crowd and fueling 2028 speculation.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Iowa Starting Line", "headline": "AOC draws record crowd at UI, 2028 buzz intensifies", "url": "", "date": "2025-04-18" }
-      ]
-    },
-    {
-      "id": "aoc-2025-05-texas-rally",
-      "candidate": "aoc", "date": "2025-05-22", "event_type": "rally",
-      "title": "Texas Progressive Rally — Houston",
-      "location_city": "Houston", "location_state": "TX", "location_display": "Houston, TX",
-      "venue": "Discovery Green",
-      "description": "AOC headlined a progressive rally in Houston, drawing thousands and energizing Texas Democrats ahead of future elections.",
-      "significance": "medium",
-      "press_clips": [
-        { "outlet": "Houston Chronicle", "headline": "AOC rallies Houston progressives", "url": "", "date": "2025-05-22" }
-      ]
-    },
-    {
-      "id": "aoc-2025-07-new-hampshire",
-      "candidate": "aoc", "date": "2025-07-12", "event_type": "travel",
-      "title": "New Hampshire Progressive Summit",
-      "location_city": "Concord", "location_state": "NH", "location_display": "Concord, NH",
-      "venue": "New Hampshire State House area",
-      "description": "AOC headlined a progressive summit in New Hampshire, her second early primary state visit of 2025.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "New Hampshire Union Leader", "headline": "AOC visits NH progressive summit", "url": "", "date": "2025-07-12" }
-      ]
-    },
-    {
-      "id": "newsom-2025-01-la-fires",
-      "candidate": "newsom", "date": "2025-01-10", "event_type": "other",
-      "title": "Los Angeles Wildfire Emergency Response",
-      "location_city": "Los Angeles", "location_state": "CA", "location_display": "Los Angeles, CA",
-      "venue": "Multiple fire zones",
-      "description": "Gov. Newsom managed the state response to devastating LA wildfires, holding daily press conferences and touring fire zones under intense national scrutiny.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Los Angeles Times", "headline": "Newsom tours wildfire devastation as criticism mounts", "url": "", "date": "2025-01-10" },
-        { "outlet": "Politico", "headline": "LA fires become political flashpoint for Newsom", "url": "", "date": "2025-01-12" }
-      ]
-    },
-    {
-      "id": "newsom-2025-02-fox-news",
-      "candidate": "newsom", "date": "2025-02-18", "event_type": "interview",
-      "title": "Fox News Town Hall Appearance",
-      "location_city": "New York", "location_state": "NY", "location_display": "New York, NY",
-      "venue": "Fox News Studios",
-      "description": "Newsom appeared on Fox News taking questions from conservative host and Republican voters — a bold move generating massive national media coverage.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Politico", "headline": "Newsom heads into enemy territory with Fox News town hall", "url": "", "date": "2025-02-18" }
-      ]
-    },
-    {
-      "id": "newsom-2025-03-iowa-visit",
-      "candidate": "newsom", "date": "2025-03-07", "event_type": "travel",
-      "title": "Iowa Agriculture Summit Keynote",
-      "location_city": "Des Moines", "location_state": "IA", "location_display": "Des Moines, IA",
-      "venue": "Iowa Events Center",
-      "description": "Newsom's first Iowa visit drew intense 2028 speculation as he addressed the agriculture summit and met with Iowa Democratic leaders.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Des Moines Register", "headline": "Newsom visits Iowa, fueling 2028 presidential buzz", "url": "", "date": "2025-03-07" }
-      ]
-    },
-    {
-      "id": "newsom-2025-05-new-hampshire",
-      "candidate": "newsom", "date": "2025-05-16", "event_type": "travel",
-      "title": "New Hampshire Democratic Party Dinner",
-      "location_city": "Manchester", "location_state": "NH", "location_display": "Manchester, NH",
-      "venue": "DoubleTree by Hilton Manchester",
-      "description": "Newsom headlined the New Hampshire Democratic Party's annual fundraising dinner, his first visit to the first-in-the-nation primary state.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "New Hampshire Union Leader", "headline": "Newsom headlines NH Dems dinner in shadow campaign move", "url": "", "date": "2025-05-16" }
-      ]
-    },
-    {
       "id": "newsom-2025-07-south-carolina",
-      "candidate": "newsom", "date": "2025-07-25", "event_type": "travel",
+      "candidate": "newsom",
+      "date": "2025-07-25",
+      "event_type": "travel",
       "title": "South Carolina Democratic Party Event",
-      "location_city": "Charleston", "location_state": "SC", "location_display": "Charleston, SC",
+      "location_city": "Charleston",
+      "location_state": "SC",
+      "location_display": "Charleston, SC",
       "venue": "Gaillard Center",
       "description": "Newsom visited South Carolina for a Democratic Party event, completing visits to multiple early primary states in 2025.",
       "significance": "high",
       "press_clips": [
-        { "outlet": "Post and Courier", "headline": "Newsom continues early state tour with SC visit", "url": "", "date": "2025-07-25" }
+        {
+          "outlet": "Post and Courier",
+          "headline": "Newsom continues early state tour with SC visit",
+          "url": "",
+          "date": "2025-07-25"
+        }
       ]
     },
     {
-      "id": "buttigieg-2025-01-dot-departure",
-      "candidate": "buttigieg", "date": "2025-01-20", "event_type": "other",
-      "title": "Departed as Transportation Secretary",
-      "location_city": "Washington", "location_state": "DC", "location_display": "Washington, DC",
-      "venue": "Department of Transportation",
-      "description": "Pete Buttigieg officially left his role as Secretary of Transportation, delivering a farewell address to staff and beginning his post-cabinet political life.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Politico", "headline": "Buttigieg departs DOT, future political plans unclear", "url": "", "date": "2025-01-20" }
-      ]
-    },
-    {
-      "id": "buttigieg-2025-02-iowa-visit",
-      "candidate": "buttigieg", "date": "2025-02-22", "event_type": "travel",
-      "title": "Iowa Democratic Party Fundraiser",
-      "location_city": "Des Moines", "location_state": "IA", "location_display": "Des Moines, IA",
-      "venue": "Iowa Democratic Party HQ",
-      "description": "Buttigieg's early return to Iowa for a fundraiser and roundtable fueled significant 2028 speculation among Iowa insiders.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Des Moines Register", "headline": "Buttigieg returns to Iowa amid 2028 chatter", "url": "", "date": "2025-02-23" }
-      ]
-    },
-    {
-      "id": "buttigieg-2025-04-new-hampshire",
-      "candidate": "buttigieg", "date": "2025-04-05", "event_type": "travel",
-      "title": "New Hampshire Town Hall",
-      "location_city": "Portsmouth", "location_state": "NH", "location_display": "Portsmouth, NH",
-      "venue": "Portsmouth Music Hall",
-      "description": "Buttigieg held a town hall in Portsmouth, NH drawing strong local turnout and continued speculation about a 2028 run.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "New Hampshire Union Leader", "headline": "Buttigieg holds NH town hall, 2028 questions fly", "url": "", "date": "2025-04-05" }
-      ]
-    },
-    {
-      "id": "buttigieg-2025-05-nevada",
-      "candidate": "buttigieg", "date": "2025-05-30", "event_type": "travel",
-      "title": "Nevada Democratic Party Fundraiser",
-      "location_city": "Las Vegas", "location_state": "NV", "location_display": "Las Vegas, NV",
-      "venue": "Nevada Democratic Party",
-      "description": "Buttigieg visited Nevada for a Democratic Party fundraiser, completing the early primary state circuit with visits to IA, NH, and NV.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Nevada Independent", "headline": "Buttigieg makes Nevada stop in growing 2028 shadow campaign", "url": "", "date": "2025-05-30" }
-      ]
-    },
-    {
-      "id": "buttigieg-2025-07-michigan-rally",
-      "candidate": "buttigieg", "date": "2025-07-04", "event_type": "rally",
-      "title": "Michigan Independence Day Rally",
-      "location_city": "Traverse City", "location_state": "MI", "location_display": "Traverse City, MI",
-      "venue": "Open Space Amphitheater",
-      "description": "Buttigieg headlined a Fourth of July rally in his home state of Michigan, drawing a large crowd and local media coverage.",
-      "significance": "medium",
-      "press_clips": [
-        { "outlet": "Detroit Free Press", "headline": "Buttigieg back in Michigan for July 4th rally", "url": "", "date": "2025-07-04" }
-      ]
-    },
-    {
-      "id": "shapiro-2025-01-iowa-fundraiser",
-      "candidate": "shapiro", "date": "2025-01-31", "event_type": "travel",
-      "title": "Iowa Democratic Party Fundraiser",
-      "location_city": "Des Moines", "location_state": "IA", "location_display": "Des Moines, IA",
+      "id": "harris-2025-07-iowa-visit",
+      "candidate": "harris",
+      "date": "2025-07-20",
+      "event_type": "travel",
+      "title": "Iowa Democratic Fundraiser",
+      "location_city": "Des Moines",
+      "location_state": "IA",
+      "location_display": "Des Moines, IA",
       "venue": "Iowa Democratic Party",
-      "description": "Gov. Shapiro's early Iowa visit was among the first moves in his 2028 shadow campaign, meeting with key Iowa party activists.",
+      "description": "Harris visited Iowa for a Democratic Party fundraiser, her first visit to the early primary state since leaving office, sparking intense 2028 speculation.",
       "significance": "high",
       "press_clips": [
-        { "outlet": "Iowa Starting Line", "headline": "Shapiro makes early Iowa stop as 2028 field forms", "url": "", "date": "2025-01-31" }
-      ]
-    },
-    {
-      "id": "shapiro-2025-02-philly-rally",
-      "candidate": "shapiro", "date": "2025-02-05", "event_type": "rally",
-      "title": "Pennsylvania Rally Against Federal Cuts",
-      "location_city": "Philadelphia", "location_state": "PA", "location_display": "Philadelphia, PA",
-      "venue": "Philadelphia Convention Center",
-      "description": "Gov. Shapiro headlined a major PA Democratic rally against federal cuts, drawing thousands and national media coverage.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Philadelphia Inquirer", "headline": "Shapiro rallies thousands against federal budget cuts", "url": "", "date": "2025-02-05" }
-      ]
-    },
-    {
-      "id": "shapiro-2025-04-new-hampshire",
-      "candidate": "shapiro", "date": "2025-04-25", "event_type": "travel",
-      "title": "New Hampshire Democratic Party Dinner",
-      "location_city": "Concord", "location_state": "NH", "location_display": "Concord, NH",
-      "venue": "NH Democratic Party",
-      "description": "Gov. Shapiro visited New Hampshire for the party's annual dinner, his second early primary state visit of 2025.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "New Hampshire Union Leader", "headline": "Shapiro headlines NH Dems as 2028 shadow race heats up", "url": "", "date": "2025-04-25" }
-      ]
-    },
-    {
-      "id": "shapiro-2025-06-nevada",
-      "candidate": "shapiro", "date": "2025-06-20", "event_type": "travel",
-      "title": "Nevada Democratic Party Reception",
-      "location_city": "Las Vegas", "location_state": "NV", "location_display": "Las Vegas, NV",
-      "venue": "Nevada Democratic Party",
-      "description": "Gov. Shapiro visited Nevada, completing the trifecta of early primary states (IA, NH, NV) with his Vegas reception.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Nevada Independent", "headline": "Shapiro completes early state circuit with Nevada visit", "url": "", "date": "2025-06-20" }
+        {
+          "outlet": "Des Moines Register",
+          "headline": "Harris makes first Iowa visit since leaving office",
+          "url": "",
+          "date": "2025-07-20"
+        }
       ]
     },
     {
       "id": "shapiro-2025-07-south-carolina",
-      "candidate": "shapiro", "date": "2025-07-18", "event_type": "travel",
+      "candidate": "shapiro",
+      "date": "2025-07-18",
+      "event_type": "travel",
       "title": "South Carolina African American History Event",
-      "location_city": "Charleston", "location_state": "SC", "location_display": "Charleston, SC",
+      "location_city": "Charleston",
+      "location_state": "SC",
+      "location_display": "Charleston, SC",
       "venue": "Emanuel AME Church",
       "description": "Gov. Shapiro visited Emanuel AME Church in Charleston for a community event, a significant symbolic stop in a key early primary state.",
       "significance": "high",
       "press_clips": [
-        { "outlet": "Post and Courier", "headline": "Shapiro visits Emanuel AME in SC early primary outreach", "url": "", "date": "2025-07-18" }
-      ]
-    },
-    {
-      "id": "pritzker-2025-01-state-of-state",
-      "candidate": "pritzker", "date": "2025-01-25", "event_type": "speech",
-      "title": "Illinois State of the State Address",
-      "location_city": "Springfield", "location_state": "IL", "location_display": "Springfield, IL",
-      "venue": "Illinois State Capitol",
-      "description": "Gov. Pritzker's State of the State contrasted Illinois progressive policies with the Trump administration's agenda, setting a national tone.",
-      "significance": "medium",
-      "press_clips": [
-        { "outlet": "Chicago Tribune", "headline": "Pritzker uses State of the State to draw contrast with Trump", "url": "", "date": "2025-01-25" }
-      ]
-    },
-    {
-      "id": "pritzker-2025-03-iowa-visit",
-      "candidate": "pritzker", "date": "2025-03-12", "event_type": "travel",
-      "title": "Iowa Democratic Party Fundraiser",
-      "location_city": "Des Moines", "location_state": "IA", "location_display": "Des Moines, IA",
-      "venue": "Iowa Democratic Party",
-      "description": "Gov. Pritzker's Iowa fundraiser visit signaled growing presidential ambitions as he met with key party leaders.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Iowa Starting Line", "headline": "Pritzker continues early state outreach with Iowa visit", "url": "", "date": "2025-03-12" }
-      ]
-    },
-    {
-      "id": "pritzker-2025-05-new-hampshire",
-      "candidate": "pritzker", "date": "2025-05-10", "event_type": "travel",
-      "title": "New Hampshire Democratic Party Event",
-      "location_city": "Manchester", "location_state": "NH", "location_display": "Manchester, NH",
-      "venue": "NH Democratic Party",
-      "description": "Gov. Pritzker made his first New Hampshire visit for a party event, adding another early primary state to his outreach.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "New Hampshire Union Leader", "headline": "Pritzker visits NH in ongoing 2028 shadow campaign", "url": "", "date": "2025-05-10" }
-      ]
-    },
-    {
-      "id": "pritzker-2025-07-nevada-speech",
-      "candidate": "pritzker", "date": "2025-07-08", "event_type": "speech",
-      "title": "Nevada AFL-CIO Labor Convention Keynote",
-      "location_city": "Las Vegas", "location_state": "NV", "location_display": "Las Vegas, NV",
-      "venue": "Nevada AFL-CIO Convention Center",
-      "description": "Gov. Pritzker delivered the keynote at the Nevada AFL-CIO convention, building labor credentials in a key early primary state.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Nevada Independent", "headline": "Pritzker keynotes Nevada labor convention as 2028 field takes shape", "url": "", "date": "2025-07-08" }
-      ]
-    },
-    {
-      "id": "kelly-2025-01-senate-veterans",
-      "candidate": "kelly", "date": "2025-01-28", "event_type": "speech",
-      "title": "Senate Floor Speech on Veterans Affairs",
-      "location_city": "Washington", "location_state": "DC", "location_display": "Washington, DC",
-      "venue": "U.S. Senate Chamber",
-      "description": "Sen. Kelly delivered a forceful speech opposing VA cuts, drawing on his Navy pilot background and astronaut experience.",
-      "significance": "medium",
-      "press_clips": [
-        { "outlet": "Arizona Republic", "headline": "Kelly blasts VA cuts on Senate floor", "url": "", "date": "2025-01-28" }
-      ]
-    },
-    {
-      "id": "kelly-2025-02-arizona-town-hall",
-      "candidate": "kelly", "date": "2025-02-15", "event_type": "town_hall",
-      "title": "Arizona Town Hall on Federal Programs",
-      "location_city": "Tucson", "location_state": "AZ", "location_display": "Tucson, AZ",
-      "venue": "Tucson Convention Center",
-      "description": "Sen. Kelly held a packed town hall in Tucson addressing federal program cuts, with overflow crowds.",
-      "significance": "medium",
-      "press_clips": [
-        { "outlet": "Arizona Daily Star", "headline": "Kelly town hall draws hundreds in Tucson", "url": "", "date": "2025-02-15" }
-      ]
-    },
-    {
-      "id": "kelly-2025-04-iowa-visit",
-      "candidate": "kelly", "date": "2025-04-10", "event_type": "travel",
-      "title": "Iowa Democratic Party Fundraiser",
-      "location_city": "Cedar Rapids", "location_state": "IA", "location_display": "Cedar Rapids, IA",
-      "venue": "Paramount Theatre",
-      "description": "Sen. Kelly visited Iowa for a Democratic Party fundraiser, his first early primary state outreach of 2025.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Iowa Starting Line", "headline": "Kelly makes Iowa visit as 2028 field continues to form", "url": "", "date": "2025-04-10" }
-      ]
-    },
-    {
-      "id": "khanna-2025-01-peoples-march",
-      "candidate": "khanna", "date": "2025-01-18", "event_type": "rally",
-      "title": "People's March — Washington DC",
-      "location_city": "Washington", "location_state": "DC", "location_display": "Washington, DC",
-      "venue": "National Mall",
-      "description": "Rep. Khanna spoke at the People's March ahead of the inauguration, calling for progressive economic populism.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "The Nation", "headline": "Khanna calls for progressive economic populism at People's March", "url": "", "date": "2025-01-18" }
-      ]
-    },
-    {
-      "id": "khanna-2025-02-iowa-fundraiser",
-      "candidate": "khanna", "date": "2025-02-28", "event_type": "travel",
-      "title": "Iowa Democratic Party Fundraiser",
-      "location_city": "Des Moines", "location_state": "IA", "location_display": "Des Moines, IA",
-      "venue": "Iowa Democratic Party",
-      "description": "Rep. Khanna's early Iowa visit was one of the first by a declared 2028 progressive hopeful.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Des Moines Register", "headline": "Khanna visits Iowa as 2028 hopefuls begin early outreach", "url": "", "date": "2025-02-28" }
-      ]
-    },
-    {
-      "id": "khanna-2025-03-new-hampshire",
-      "candidate": "khanna", "date": "2025-03-01", "event_type": "travel",
-      "title": "New Hampshire Democratic Party Event",
-      "location_city": "Manchester", "location_state": "NH", "location_display": "Manchester, NH",
-      "venue": "NH Democratic Party HQ",
-      "description": "Rep. Khanna visited New Hampshire for a party event, hitting two early primary states in a single week.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "NH Union Leader", "headline": "Khanna visits NH as progressive 2028 hopefuls emerge", "url": "", "date": "2025-03-01" }
-      ]
-    },
-    {
-      "id": "khanna-2025-05-nevada",
-      "candidate": "khanna", "date": "2025-05-18", "event_type": "travel",
-      "title": "Nevada Progressive Summit",
-      "location_city": "Las Vegas", "location_state": "NV", "location_display": "Las Vegas, NV",
-      "venue": "UNLV",
-      "description": "Rep. Khanna headlined a progressive summit at UNLV, completing his early primary state trifecta (IA, NH, NV).",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Nevada Independent", "headline": "Khanna completes early state circuit with Nevada summit keynote", "url": "", "date": "2025-05-18" }
-      ]
-    },
-    {
-      "id": "khanna-2025-07-south-carolina",
-      "candidate": "khanna", "date": "2025-07-05", "event_type": "travel",
-      "title": "South Carolina Town Hall",
-      "location_city": "Columbia", "location_state": "SC", "location_display": "Columbia, SC",
-      "venue": "University of South Carolina",
-      "description": "Rep. Khanna held a town hall at USC, his first South Carolina visit, drawing a large student crowd.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "The State", "headline": "Khanna visits SC in continued 2028 early state outreach", "url": "", "date": "2025-07-05" }
-      ]
-    },
-    {
-      "id": "ossoff-2025-02-judiciary-hearing",
-      "candidate": "ossoff", "date": "2025-02-12", "event_type": "speech",
-      "title": "Senate Judiciary Hearing — DOJ Interference",
-      "location_city": "Washington", "location_state": "DC", "location_display": "Washington, DC",
-      "venue": "U.S. Senate",
-      "description": "Sen. Ossoff's pointed questioning at a DOJ hearing generated viral clips and significant national attention.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Atlanta Journal-Constitution", "headline": "Ossoff's sharp questioning goes viral at DOJ hearing", "url": "", "date": "2025-02-12" }
-      ]
-    },
-    {
-      "id": "ossoff-2025-03-georgia-town-hall",
-      "candidate": "ossoff", "date": "2025-03-08", "event_type": "town_hall",
-      "title": "Georgia Town Hall on Federal Funding",
-      "location_city": "Atlanta", "location_state": "GA", "location_display": "Atlanta, GA",
-      "venue": "Georgia Tech Student Center",
-      "description": "Sen. Ossoff held a packed town hall in Atlanta focused on federal funding cuts affecting Georgia.",
-      "significance": "medium",
-      "press_clips": [
-        { "outlet": "Atlanta Journal-Constitution", "headline": "Ossoff holds town hall as Georgians ask about federal cuts", "url": "", "date": "2025-03-08" }
-      ]
-    },
-    {
-      "id": "ossoff-2025-05-iowa-visit",
-      "candidate": "ossoff", "date": "2025-05-25", "event_type": "travel",
-      "title": "Iowa Democratic Party Fundraiser",
-      "location_city": "Des Moines", "location_state": "IA", "location_display": "Des Moines, IA",
-      "venue": "Iowa Democratic Party",
-      "description": "Sen. Ossoff visited Iowa for a Democratic Party fundraiser, his first trip to the early primary state since leaving office.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Iowa Starting Line", "headline": "Ossoff visits Iowa as Georgia senator eyes national profile", "url": "", "date": "2025-05-25" }
-      ]
-    },
-    {
-      "id": "murphy-2025-01-gun-safety",
-      "candidate": "murphy", "date": "2025-01-30", "event_type": "speech",
-      "title": "Senate Floor Speech on Gun Safety",
-      "location_city": "Washington", "location_state": "DC", "location_display": "Washington, DC",
-      "venue": "U.S. Senate Chamber",
-      "description": "Sen. Murphy renewed his call for gun safety legislation, cementing his role as the Senate's leading gun control advocate.",
-      "significance": "medium",
-      "press_clips": [
-        { "outlet": "Hartford Courant", "headline": "Murphy calls for gun safety action in Senate speech", "url": "", "date": "2025-01-30" }
-      ]
-    },
-    {
-      "id": "murphy-2025-04-connecticut-rally",
-      "candidate": "murphy", "date": "2025-04-08", "event_type": "rally",
-      "title": "Connecticut Rally on Democracy",
-      "location_city": "Hartford", "location_state": "CT", "location_display": "Hartford, CT",
-      "venue": "Bushnell Park",
-      "description": "Sen. Murphy headlined a rally in Hartford focused on protecting democratic institutions, drawing a large crowd.",
-      "significance": "medium",
-      "press_clips": [
-        { "outlet": "Hartford Courant", "headline": "Murphy rallies thousands in Hartford on democracy", "url": "", "date": "2025-04-08" }
-      ]
-    },
-    {
-      "id": "murphy-2025-06-iowa-visit",
-      "candidate": "murphy", "date": "2025-06-28", "event_type": "travel",
-      "title": "Iowa Democratic Party Fundraiser",
-      "location_city": "Des Moines", "location_state": "IA", "location_display": "Des Moines, IA",
-      "venue": "Iowa Democratic Party",
-      "description": "Sen. Murphy visited Iowa for a Democratic Party fundraiser, his first early primary state visit of 2025.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Iowa Starting Line", "headline": "Murphy joins growing list of 2028 hopefuls visiting Iowa", "url": "", "date": "2025-06-28" }
-      ]
-    },
-    {
-      "id": "slotkin-2025-01-sworn-in",
-      "candidate": "slotkin", "date": "2025-01-03", "event_type": "other",
-      "title": "Sworn In as U.S. Senator from Michigan",
-      "location_city": "Washington", "location_state": "DC", "location_display": "Washington, DC",
-      "venue": "U.S. Senate Chamber",
-      "description": "Elissa Slotkin was sworn in as Michigan's new U.S. Senator, delivering remarks positioning herself as a centrist focused on working-class voters.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Detroit Free Press", "headline": "Slotkin sworn in as Michigan's newest senator", "url": "", "date": "2025-01-03" }
-      ]
-    },
-    {
-      "id": "slotkin-2025-02-michigan-town-hall",
-      "candidate": "slotkin", "date": "2025-02-18", "event_type": "town_hall",
-      "title": "Michigan Town Hall on Manufacturing Jobs",
-      "location_city": "Lansing", "location_state": "MI", "location_display": "Lansing, MI",
-      "venue": "Lansing Community College",
-      "description": "Sen. Slotkin held a town hall focused on Michigan manufacturing jobs, drawing large union and auto worker attendance.",
-      "significance": "medium",
-      "press_clips": [
-        { "outlet": "Detroit Free Press", "headline": "Slotkin listens to Michigan workers' economic concerns", "url": "", "date": "2025-02-18" }
-      ]
-    },
-    {
-      "id": "slotkin-2025-04-iowa-visit",
-      "candidate": "slotkin", "date": "2025-04-22", "event_type": "travel",
-      "title": "Iowa Democratic Organizing Event",
-      "location_city": "Des Moines", "location_state": "IA", "location_display": "Des Moines, IA",
-      "venue": "Iowa Democratic Party",
-      "description": "Sen. Slotkin visited Iowa for a Democratic organizing event, signaling early primary state ambitions.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Iowa Starting Line", "headline": "Slotkin makes early Iowa visit as national profile grows", "url": "", "date": "2025-04-22" }
-      ]
-    },
-    {
-      "id": "crow-2025-01-veterans-rally",
-      "candidate": "crow", "date": "2025-01-22", "event_type": "rally",
-      "title": "Colorado Veterans Advocacy Rally",
-      "location_city": "Denver", "location_state": "CO", "location_display": "Denver, CO",
-      "venue": "Colorado State Capitol Steps",
-      "description": "Rep. Crow organized a veterans rally opposing VA cuts, drawing on his Army Ranger background.",
-      "significance": "medium",
-      "press_clips": [
-        { "outlet": "Denver Post", "headline": "Crow rallies Colorado veterans against VA funding cuts", "url": "", "date": "2025-01-22" }
-      ]
-    },
-    {
-      "id": "crow-2025-03-iowa-visit",
-      "candidate": "crow", "date": "2025-03-10", "event_type": "travel",
-      "title": "Iowa Democratic Party Reception",
-      "location_city": "Des Moines", "location_state": "IA", "location_display": "Des Moines, IA",
-      "venue": "Iowa Democratic Party",
-      "description": "Rep. Crow's early Iowa visit for a party reception generated significant 2028 speculation from Iowa activists.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "Iowa Starting Line", "headline": "Crow visits Iowa as 2028 field begins to take shape", "url": "", "date": "2025-03-10" }
-      ]
-    },
-    {
-      "id": "crow-2025-05-new-hampshire",
-      "candidate": "crow", "date": "2025-05-08", "event_type": "travel",
-      "title": "New Hampshire Veterans Event",
-      "location_city": "Concord", "location_state": "NH", "location_display": "Concord, NH",
-      "venue": "NH Veterans Memorial",
-      "description": "Rep. Crow visited New Hampshire for a veterans advocacy event, leveraging his military background in a key early primary state.",
-      "significance": "high",
-      "press_clips": [
-        { "outlet": "NH Union Leader", "headline": "Crow brings veterans message to New Hampshire", "url": "", "date": "2025-05-08" }
+        {
+          "outlet": "Post and Courier",
+          "headline": "Shapiro visits Emanuel AME in SC early primary outreach",
+          "url": "",
+          "date": "2025-07-18"
+        }
       ]
     },
     {
       "id": "crow-2025-07-nevada",
-      "candidate": "crow", "date": "2025-07-15", "event_type": "travel",
+      "candidate": "crow",
+      "date": "2025-07-15",
+      "event_type": "travel",
       "title": "Nevada Democratic Party Event",
-      "location_city": "Las Vegas", "location_state": "NV", "location_display": "Las Vegas, NV",
+      "location_city": "Las Vegas",
+      "location_state": "NV",
+      "location_display": "Las Vegas, NV",
       "venue": "Nevada Democratic Party",
       "description": "Rep. Crow visited Nevada for a Democratic Party event, completing early primary state outreach to IA, NH, and NV.",
       "significance": "high",
       "press_clips": [
-        { "outlet": "Nevada Independent", "headline": "Crow visits Nevada in continued 2028 shadow campaign", "url": "", "date": "2025-07-15" }
+        {
+          "outlet": "Nevada Independent",
+          "headline": "Crow visits Nevada in continued 2028 shadow campaign",
+          "url": "",
+          "date": "2025-07-15"
+        }
+      ]
+    },
+    {
+      "id": "aoc-2025-07-new-hampshire",
+      "candidate": "aoc",
+      "date": "2025-07-12",
+      "event_type": "travel",
+      "title": "New Hampshire Progressive Summit",
+      "location_city": "Concord",
+      "location_state": "NH",
+      "location_display": "Concord, NH",
+      "venue": "New Hampshire State House area",
+      "description": "AOC headlined a progressive summit in New Hampshire, her second early primary state visit of 2025.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "New Hampshire Union Leader",
+          "headline": "AOC visits NH progressive summit",
+          "url": "",
+          "date": "2025-07-12"
+        }
+      ]
+    },
+    {
+      "id": "pritzker-2025-07-nevada-speech",
+      "candidate": "pritzker",
+      "date": "2025-07-08",
+      "event_type": "speech",
+      "title": "Nevada AFL-CIO Labor Convention Keynote",
+      "location_city": "Las Vegas",
+      "location_state": "NV",
+      "location_display": "Las Vegas, NV",
+      "venue": "Nevada AFL-CIO Convention Center",
+      "description": "Gov. Pritzker delivered the keynote at the Nevada AFL-CIO convention, building labor credentials in a key early primary state.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Nevada Independent",
+          "headline": "Pritzker keynotes Nevada labor convention as 2028 field takes shape",
+          "url": "",
+          "date": "2025-07-08"
+        }
+      ]
+    },
+    {
+      "id": "khanna-2025-07-south-carolina",
+      "candidate": "khanna",
+      "date": "2025-07-05",
+      "event_type": "travel",
+      "title": "South Carolina Town Hall",
+      "location_city": "Columbia",
+      "location_state": "SC",
+      "location_display": "Columbia, SC",
+      "venue": "University of South Carolina",
+      "description": "Rep. Khanna held a town hall at USC, his first South Carolina visit, drawing a large student crowd.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "The State",
+          "headline": "Khanna visits SC in continued 2028 early state outreach",
+          "url": "",
+          "date": "2025-07-05"
+        }
+      ]
+    },
+    {
+      "id": "buttigieg-2025-07-michigan-rally",
+      "candidate": "buttigieg",
+      "date": "2025-07-04",
+      "event_type": "rally",
+      "title": "Michigan Independence Day Rally",
+      "location_city": "Traverse City",
+      "location_state": "MI",
+      "location_display": "Traverse City, MI",
+      "venue": "Open Space Amphitheater",
+      "description": "Buttigieg headlined a Fourth of July rally in his home state of Michigan, drawing a large crowd and local media coverage.",
+      "significance": "medium",
+      "press_clips": [
+        {
+          "outlet": "Detroit Free Press",
+          "headline": "Buttigieg back in Michigan for July 4th rally",
+          "url": "",
+          "date": "2025-07-04"
+        }
+      ]
+    },
+    {
+      "id": "murphy-2025-06-iowa-visit",
+      "candidate": "murphy",
+      "date": "2025-06-28",
+      "event_type": "travel",
+      "title": "Iowa Democratic Party Fundraiser",
+      "location_city": "Des Moines",
+      "location_state": "IA",
+      "location_display": "Des Moines, IA",
+      "venue": "Iowa Democratic Party",
+      "description": "Sen. Murphy visited Iowa for a Democratic Party fundraiser, his first early primary state visit of 2025.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Iowa Starting Line",
+          "headline": "Murphy joins growing list of 2028 hopefuls visiting Iowa",
+          "url": "",
+          "date": "2025-06-28"
+        }
+      ]
+    },
+    {
+      "id": "shapiro-2025-06-nevada",
+      "candidate": "shapiro",
+      "date": "2025-06-20",
+      "event_type": "travel",
+      "title": "Nevada Democratic Party Reception",
+      "location_city": "Las Vegas",
+      "location_state": "NV",
+      "location_display": "Las Vegas, NV",
+      "venue": "Nevada Democratic Party",
+      "description": "Gov. Shapiro visited Nevada, completing the trifecta of early primary states (IA, NH, NV) with his Vegas reception.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Nevada Independent",
+          "headline": "Shapiro completes early state circuit with Nevada visit",
+          "url": "",
+          "date": "2025-06-20"
+        }
+      ]
+    },
+    {
+      "id": "booker-2025-06-new-hampshire",
+      "candidate": "booker",
+      "date": "2025-06-14",
+      "event_type": "travel",
+      "title": "New Hampshire Democratic Party Fundraiser",
+      "location_city": "Manchester",
+      "location_state": "NH",
+      "location_display": "Manchester, NH",
+      "venue": "NH Democratic Party HQ",
+      "description": "Sen. Booker traveled to New Hampshire for a Democratic Party fundraiser, continuing his early primary state outreach.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "New Hampshire Union Leader",
+          "headline": "Booker visits NH amid growing 2028 buzz",
+          "url": "",
+          "date": "2025-06-14"
+        }
+      ]
+    },
+    {
+      "id": "harris-2025-06-book-tour-la",
+      "candidate": "harris",
+      "date": "2025-06-13",
+      "event_type": "other",
+      "title": "Book Tour \u2014 Los Angeles",
+      "location_city": "Los Angeles",
+      "location_state": "CA",
+      "location_display": "Los Angeles, CA",
+      "venue": "Crypto.com Arena",
+      "description": "Harris concluded a major leg of her book tour in Los Angeles with a massive sold-out event drawing tens of thousands of supporters.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Los Angeles Times",
+          "headline": "Harris closes book tour leg with massive LA crowd",
+          "url": "",
+          "date": "2025-06-13"
+        }
+      ]
+    },
+    {
+      "id": "harris-2025-06-book-tour-houston",
+      "candidate": "harris",
+      "date": "2025-06-10",
+      "event_type": "other",
+      "title": "Book Tour \u2014 Houston",
+      "location_city": "Houston",
+      "location_state": "TX",
+      "location_display": "Houston, TX",
+      "venue": "Toyota Center",
+      "description": "Harris drew a large crowd in Houston as part of her national book tour, energizing Texas Democrats.",
+      "significance": "medium",
+      "press_clips": [
+        {
+          "outlet": "Houston Chronicle",
+          "headline": "Harris brings book tour to Houston",
+          "url": "",
+          "date": "2025-06-10"
+        }
+      ]
+    },
+    {
+      "id": "harris-2025-06-book-tour-atlanta",
+      "candidate": "harris",
+      "date": "2025-06-08",
+      "event_type": "other",
+      "title": "Book Tour \u2014 Atlanta",
+      "location_city": "Atlanta",
+      "location_state": "GA",
+      "location_display": "Atlanta, GA",
+      "venue": "Fox Theatre",
+      "description": "Harris continued her national book tour with a sold-out stop in Atlanta, a critical early primary state, energizing Georgia Democrats.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Atlanta Journal-Constitution",
+          "headline": "Harris brings book tour to sold-out Atlanta show",
+          "url": "",
+          "date": "2025-06-08"
+        }
+      ]
+    },
+    {
+      "id": "harris-2025-06-book-tour-chicago",
+      "candidate": "harris",
+      "date": "2025-06-05",
+      "event_type": "other",
+      "title": "Book Tour \u2014 Chicago",
+      "location_city": "Chicago",
+      "location_state": "IL",
+      "location_display": "Chicago, IL",
+      "venue": "United Center",
+      "description": "Harris drew a massive crowd of over 10,000 at United Center for a book tour stop, her largest event since the 2024 election.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Chicago Tribune",
+          "headline": "Harris packs United Center on book tour stop",
+          "url": "",
+          "date": "2025-06-05"
+        }
+      ]
+    },
+    {
+      "id": "harris-2025-06-book-tour-ny",
+      "candidate": "harris",
+      "date": "2025-06-03",
+      "event_type": "other",
+      "title": "Book Tour \u2014 New York City",
+      "location_city": "New York",
+      "location_state": "NY",
+      "location_display": "New York, NY",
+      "venue": "92nd Street Y",
+      "description": "Harris launched her book tour in New York City, drawing large crowds and generating significant national media coverage about her future political plans.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "New York Times",
+          "headline": "Harris draws large crowds on book tour, future plans unclear",
+          "url": "",
+          "date": "2025-06-03"
+        }
+      ]
+    },
+    {
+      "id": "buttigieg-2025-05-nevada",
+      "candidate": "buttigieg",
+      "date": "2025-05-30",
+      "event_type": "travel",
+      "title": "Nevada Democratic Party Fundraiser",
+      "location_city": "Las Vegas",
+      "location_state": "NV",
+      "location_display": "Las Vegas, NV",
+      "venue": "Nevada Democratic Party",
+      "description": "Buttigieg visited Nevada for a Democratic Party fundraiser, completing the early primary state circuit with visits to IA, NH, and NV.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Nevada Independent",
+          "headline": "Buttigieg makes Nevada stop in growing 2028 shadow campaign",
+          "url": "",
+          "date": "2025-05-30"
+        }
+      ]
+    },
+    {
+      "id": "ossoff-2025-05-iowa-visit",
+      "candidate": "ossoff",
+      "date": "2025-05-25",
+      "event_type": "travel",
+      "title": "Iowa Democratic Party Fundraiser",
+      "location_city": "Des Moines",
+      "location_state": "IA",
+      "location_display": "Des Moines, IA",
+      "venue": "Iowa Democratic Party",
+      "description": "Sen. Ossoff visited Iowa for a Democratic Party fundraiser, his first trip to the early primary state since leaving office.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Iowa Starting Line",
+          "headline": "Ossoff visits Iowa as Georgia senator eyes national profile",
+          "url": "",
+          "date": "2025-05-25"
+        }
+      ]
+    },
+    {
+      "id": "aoc-2025-05-texas-rally",
+      "candidate": "aoc",
+      "date": "2025-05-22",
+      "event_type": "rally",
+      "title": "Texas Progressive Rally \u2014 Houston",
+      "location_city": "Houston",
+      "location_state": "TX",
+      "location_display": "Houston, TX",
+      "venue": "Discovery Green",
+      "description": "AOC headlined a progressive rally in Houston, drawing thousands and energizing Texas Democrats ahead of future elections.",
+      "significance": "medium",
+      "press_clips": [
+        {
+          "outlet": "Houston Chronicle",
+          "headline": "AOC rallies Houston progressives",
+          "url": "",
+          "date": "2025-05-22"
+        }
+      ]
+    },
+    {
+      "id": "khanna-2025-05-nevada",
+      "candidate": "khanna",
+      "date": "2025-05-18",
+      "event_type": "travel",
+      "title": "Nevada Progressive Summit",
+      "location_city": "Las Vegas",
+      "location_state": "NV",
+      "location_display": "Las Vegas, NV",
+      "venue": "UNLV",
+      "description": "Rep. Khanna headlined a progressive summit at UNLV, completing his early primary state trifecta (IA, NH, NV).",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Nevada Independent",
+          "headline": "Khanna completes early state circuit with Nevada summit keynote",
+          "url": "",
+          "date": "2025-05-18"
+        }
+      ]
+    },
+    {
+      "id": "newsom-2025-05-new-hampshire",
+      "candidate": "newsom",
+      "date": "2025-05-16",
+      "event_type": "travel",
+      "title": "New Hampshire Democratic Party Dinner",
+      "location_city": "Manchester",
+      "location_state": "NH",
+      "location_display": "Manchester, NH",
+      "venue": "DoubleTree by Hilton Manchester",
+      "description": "Newsom headlined the New Hampshire Democratic Party's annual fundraising dinner, his first visit to the first-in-the-nation primary state.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "New Hampshire Union Leader",
+          "headline": "Newsom headlines NH Dems dinner in shadow campaign move",
+          "url": "",
+          "date": "2025-05-16"
+        }
+      ]
+    },
+    {
+      "id": "pritzker-2025-05-new-hampshire",
+      "candidate": "pritzker",
+      "date": "2025-05-10",
+      "event_type": "travel",
+      "title": "New Hampshire Democratic Party Event",
+      "location_city": "Manchester",
+      "location_state": "NH",
+      "location_display": "Manchester, NH",
+      "venue": "NH Democratic Party",
+      "description": "Gov. Pritzker made his first New Hampshire visit for a party event, adding another early primary state to his outreach.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "New Hampshire Union Leader",
+          "headline": "Pritzker visits NH in ongoing 2028 shadow campaign",
+          "url": "",
+          "date": "2025-05-10"
+        }
+      ]
+    },
+    {
+      "id": "crow-2025-05-new-hampshire",
+      "candidate": "crow",
+      "date": "2025-05-08",
+      "event_type": "travel",
+      "title": "New Hampshire Veterans Event",
+      "location_city": "Concord",
+      "location_state": "NH",
+      "location_display": "Concord, NH",
+      "venue": "NH Veterans Memorial",
+      "description": "Rep. Crow visited New Hampshire for a veterans advocacy event, leveraging his military background in a key early primary state.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "NH Union Leader",
+          "headline": "Crow brings veterans message to New Hampshire",
+          "url": "",
+          "date": "2025-05-08"
+        }
+      ]
+    },
+    {
+      "id": "booker-2025-05-iowa-town-hall",
+      "candidate": "booker",
+      "date": "2025-05-03",
+      "event_type": "town_hall",
+      "title": "Iowa Town Hall on Economic Justice",
+      "location_city": "Des Moines",
+      "location_state": "IA",
+      "location_display": "Des Moines, IA",
+      "venue": "Drake University",
+      "description": "Sen. Booker held a town hall at Drake University focused on economic justice and the future of the Democratic Party, drawing a packed crowd.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Des Moines Register",
+          "headline": "Booker makes Iowa stop with town hall at Drake",
+          "url": "",
+          "date": "2025-05-03"
+        }
+      ]
+    },
+    {
+      "id": "shapiro-2025-04-new-hampshire",
+      "candidate": "shapiro",
+      "date": "2025-04-25",
+      "event_type": "travel",
+      "title": "New Hampshire Democratic Party Dinner",
+      "location_city": "Concord",
+      "location_state": "NH",
+      "location_display": "Concord, NH",
+      "venue": "NH Democratic Party",
+      "description": "Gov. Shapiro visited New Hampshire for the party's annual dinner, his second early primary state visit of 2025.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "New Hampshire Union Leader",
+          "headline": "Shapiro headlines NH Dems as 2028 shadow race heats up",
+          "url": "",
+          "date": "2025-04-25"
+        }
+      ]
+    },
+    {
+      "id": "slotkin-2025-04-iowa-visit",
+      "candidate": "slotkin",
+      "date": "2025-04-22",
+      "event_type": "travel",
+      "title": "Iowa Democratic Organizing Event",
+      "location_city": "Des Moines",
+      "location_state": "IA",
+      "location_display": "Des Moines, IA",
+      "venue": "Iowa Democratic Party",
+      "description": "Sen. Slotkin visited Iowa for a Democratic organizing event, signaling early primary state ambitions.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Iowa Starting Line",
+          "headline": "Slotkin makes early Iowa visit as national profile grows",
+          "url": "",
+          "date": "2025-04-22"
+        }
+      ]
+    },
+    {
+      "id": "aoc-2025-04-iowa-visit",
+      "candidate": "aoc",
+      "date": "2025-04-18",
+      "event_type": "travel",
+      "title": "Iowa Progressive Organizing Event",
+      "location_city": "Iowa City",
+      "location_state": "IA",
+      "location_display": "Iowa City, IA",
+      "venue": "University of Iowa",
+      "description": "AOC visited Iowa City for a progressive organizing event at the University of Iowa, drawing a massive student crowd and fueling 2028 speculation.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Iowa Starting Line",
+          "headline": "AOC draws record crowd at UI, 2028 buzz intensifies",
+          "url": "",
+          "date": "2025-04-18"
+        }
+      ]
+    },
+    {
+      "id": "booker-2025-04-las-vegas-rally",
+      "candidate": "booker",
+      "date": "2025-04-12",
+      "event_type": "rally",
+      "title": "Las Vegas Progressive Rally",
+      "location_city": "Las Vegas",
+      "location_state": "NV",
+      "location_display": "Las Vegas, NV",
+      "venue": "UNLV Thomas & Mack Center",
+      "description": "Sen. Booker headlined a major progressive rally in Las Vegas drawing thousands, with strong turnout from Nevada labor unions and progressive activists.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Las Vegas Sun",
+          "headline": "Booker draws massive crowd at Vegas rally",
+          "url": "",
+          "date": "2025-04-12"
+        }
+      ]
+    },
+    {
+      "id": "kelly-2025-04-iowa-visit",
+      "candidate": "kelly",
+      "date": "2025-04-10",
+      "event_type": "travel",
+      "title": "Iowa Democratic Party Fundraiser",
+      "location_city": "Cedar Rapids",
+      "location_state": "IA",
+      "location_display": "Cedar Rapids, IA",
+      "venue": "Paramount Theatre",
+      "description": "Sen. Kelly visited Iowa for a Democratic Party fundraiser, his first early primary state outreach of 2025.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Iowa Starting Line",
+          "headline": "Kelly makes Iowa visit as 2028 field continues to form",
+          "url": "",
+          "date": "2025-04-10"
+        }
+      ]
+    },
+    {
+      "id": "murphy-2025-04-connecticut-rally",
+      "candidate": "murphy",
+      "date": "2025-04-08",
+      "event_type": "rally",
+      "title": "Connecticut Rally on Democracy",
+      "location_city": "Hartford",
+      "location_state": "CT",
+      "location_display": "Hartford, CT",
+      "venue": "Bushnell Park",
+      "description": "Sen. Murphy headlined a rally in Hartford focused on protecting democratic institutions, drawing a large crowd.",
+      "significance": "medium",
+      "press_clips": [
+        {
+          "outlet": "Hartford Courant",
+          "headline": "Murphy rallies thousands in Hartford on democracy",
+          "url": "",
+          "date": "2025-04-08"
+        }
+      ]
+    },
+    {
+      "id": "buttigieg-2025-04-new-hampshire",
+      "candidate": "buttigieg",
+      "date": "2025-04-05",
+      "event_type": "travel",
+      "title": "New Hampshire Town Hall",
+      "location_city": "Portsmouth",
+      "location_state": "NH",
+      "location_display": "Portsmouth, NH",
+      "venue": "Portsmouth Music Hall",
+      "description": "Buttigieg held a town hall in Portsmouth, NH drawing strong local turnout and continued speculation about a 2028 run.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "New Hampshire Union Leader",
+          "headline": "Buttigieg holds NH town hall, 2028 questions fly",
+          "url": "",
+          "date": "2025-04-05"
+        }
+      ]
+    },
+    {
+      "id": "pritzker-2025-03-iowa-visit",
+      "candidate": "pritzker",
+      "date": "2025-03-12",
+      "event_type": "travel",
+      "title": "Iowa Democratic Party Fundraiser",
+      "location_city": "Des Moines",
+      "location_state": "IA",
+      "location_display": "Des Moines, IA",
+      "venue": "Iowa Democratic Party",
+      "description": "Gov. Pritzker's Iowa fundraiser visit signaled growing presidential ambitions as he met with key party leaders.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Iowa Starting Line",
+          "headline": "Pritzker continues early state outreach with Iowa visit",
+          "url": "",
+          "date": "2025-03-12"
+        }
+      ]
+    },
+    {
+      "id": "crow-2025-03-iowa-visit",
+      "candidate": "crow",
+      "date": "2025-03-10",
+      "event_type": "travel",
+      "title": "Iowa Democratic Party Reception",
+      "location_city": "Des Moines",
+      "location_state": "IA",
+      "location_display": "Des Moines, IA",
+      "venue": "Iowa Democratic Party",
+      "description": "Rep. Crow's early Iowa visit for a party reception generated significant 2028 speculation from Iowa activists.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Iowa Starting Line",
+          "headline": "Crow visits Iowa as 2028 field begins to take shape",
+          "url": "",
+          "date": "2025-03-10"
+        }
+      ]
+    },
+    {
+      "id": "ossoff-2025-03-georgia-town-hall",
+      "candidate": "ossoff",
+      "date": "2025-03-08",
+      "event_type": "town_hall",
+      "title": "Georgia Town Hall on Federal Funding",
+      "location_city": "Atlanta",
+      "location_state": "GA",
+      "location_display": "Atlanta, GA",
+      "venue": "Georgia Tech Student Center",
+      "description": "Sen. Ossoff held a packed town hall in Atlanta focused on federal funding cuts affecting Georgia.",
+      "significance": "medium",
+      "press_clips": [
+        {
+          "outlet": "Atlanta Journal-Constitution",
+          "headline": "Ossoff holds town hall as Georgians ask about federal cuts",
+          "url": "",
+          "date": "2025-03-08"
+        }
+      ]
+    },
+    {
+      "id": "newsom-2025-03-iowa-visit",
+      "candidate": "newsom",
+      "date": "2025-03-07",
+      "event_type": "travel",
+      "title": "Iowa Agriculture Summit Keynote",
+      "location_city": "Des Moines",
+      "location_state": "IA",
+      "location_display": "Des Moines, IA",
+      "venue": "Iowa Events Center",
+      "description": "Newsom's first Iowa visit drew intense 2028 speculation as he addressed the agriculture summit and met with Iowa Democratic leaders.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Des Moines Register",
+          "headline": "Newsom visits Iowa, fueling 2028 presidential buzz",
+          "url": "",
+          "date": "2025-03-07"
+        }
+      ]
+    },
+    {
+      "id": "booker-2025-03-06-senate-filibuster",
+      "candidate": "booker",
+      "date": "2025-03-06",
+      "event_type": "speech",
+      "title": "Record-Breaking 25-Hour Senate Filibuster",
+      "location_city": "Washington",
+      "location_state": "DC",
+      "location_display": "Washington, DC",
+      "venue": "U.S. Senate Chamber",
+      "description": "Sen. Booker delivered a record-breaking filibuster speech on the Senate floor opposing Trump administration cuts to Medicaid and social programs. The speech went viral nationally.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "New York Times",
+          "headline": "Cory Booker Filibusters for 25 Hours in Senate",
+          "url": "",
+          "date": "2025-03-07"
+        },
+        {
+          "outlet": "CNN",
+          "headline": "Booker ends record-setting filibuster",
+          "url": "",
+          "date": "2025-03-07"
+        }
+      ]
+    },
+    {
+      "id": "aoc-2025-03-nevada-rally",
+      "candidate": "aoc",
+      "date": "2025-03-05",
+      "event_type": "rally",
+      "title": "Nevada Progressive Rally",
+      "location_city": "Las Vegas",
+      "location_state": "NV",
+      "location_display": "Las Vegas, NV",
+      "venue": "University of Nevada Las Vegas",
+      "description": "AOC headlined a progressive rally at UNLV drawing thousands, a key early primary state visit.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Las Vegas Review-Journal",
+          "headline": "AOC draws thousands at UNLV rally",
+          "url": "",
+          "date": "2025-03-05"
+        },
+        {
+          "outlet": "Politico",
+          "headline": "AOC's Nevada visit fuels 2028 speculation",
+          "url": "",
+          "date": "2025-03-06"
+        }
+      ]
+    },
+    {
+      "id": "harris-2025-03-howard-speech",
+      "candidate": "harris",
+      "date": "2025-03-01",
+      "event_type": "speech",
+      "title": "Howard University Address",
+      "location_city": "Washington",
+      "location_state": "DC",
+      "location_display": "Washington, DC",
+      "venue": "Howard University",
+      "description": "Former VP Harris delivered her first major post-election speech at her alma mater, addressing democracy and the party's future.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "NBC News",
+          "headline": "Harris delivers first major post-election speech at Howard",
+          "url": "",
+          "date": "2025-03-01"
+        }
+      ]
+    },
+    {
+      "id": "khanna-2025-03-new-hampshire",
+      "candidate": "khanna",
+      "date": "2025-03-01",
+      "event_type": "travel",
+      "title": "New Hampshire Democratic Party Event",
+      "location_city": "Manchester",
+      "location_state": "NH",
+      "location_display": "Manchester, NH",
+      "venue": "NH Democratic Party HQ",
+      "description": "Rep. Khanna visited New Hampshire for a party event, hitting two early primary states in a single week.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "NH Union Leader",
+          "headline": "Khanna visits NH as progressive 2028 hopefuls emerge",
+          "url": "",
+          "date": "2025-03-01"
+        }
+      ]
+    },
+    {
+      "id": "khanna-2025-02-iowa-fundraiser",
+      "candidate": "khanna",
+      "date": "2025-02-28",
+      "event_type": "travel",
+      "title": "Iowa Democratic Party Fundraiser",
+      "location_city": "Des Moines",
+      "location_state": "IA",
+      "location_display": "Des Moines, IA",
+      "venue": "Iowa Democratic Party",
+      "description": "Rep. Khanna's early Iowa visit was one of the first by a declared 2028 progressive hopeful.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Des Moines Register",
+          "headline": "Khanna visits Iowa as 2028 hopefuls begin early outreach",
+          "url": "",
+          "date": "2025-02-28"
+        }
+      ]
+    },
+    {
+      "id": "buttigieg-2025-02-iowa-visit",
+      "candidate": "buttigieg",
+      "date": "2025-02-22",
+      "event_type": "travel",
+      "title": "Iowa Democratic Party Fundraiser",
+      "location_city": "Des Moines",
+      "location_state": "IA",
+      "location_display": "Des Moines, IA",
+      "venue": "Iowa Democratic Party HQ",
+      "description": "Buttigieg's early return to Iowa for a fundraiser and roundtable fueled significant 2028 speculation among Iowa insiders.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Des Moines Register",
+          "headline": "Buttigieg returns to Iowa amid 2028 chatter",
+          "url": "",
+          "date": "2025-02-23"
+        }
+      ]
+    },
+    {
+      "id": "harris-2025-02-california-convention",
+      "candidate": "harris",
+      "date": "2025-02-20",
+      "event_type": "speech",
+      "title": "California Democratic Party Convention Speech",
+      "location_city": "Sacramento",
+      "location_state": "CA",
+      "location_display": "Sacramento, CA",
+      "venue": "Sacramento Convention Center",
+      "description": "Former VP Harris addressed the California Democratic Party convention to a standing ovation, hinting at continued political involvement.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Los Angeles Times",
+          "headline": "Harris gets hero's welcome at CA Dems convention",
+          "url": "",
+          "date": "2025-02-20"
+        }
+      ]
+    },
+    {
+      "id": "newsom-2025-02-fox-news",
+      "candidate": "newsom",
+      "date": "2025-02-18",
+      "event_type": "interview",
+      "title": "Fox News Town Hall Appearance",
+      "location_city": "New York",
+      "location_state": "NY",
+      "location_display": "New York, NY",
+      "venue": "Fox News Studios",
+      "description": "Newsom appeared on Fox News taking questions from conservative host and Republican voters \u2014 a bold move generating massive national media coverage.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Politico",
+          "headline": "Newsom heads into enemy territory with Fox News town hall",
+          "url": "",
+          "date": "2025-02-18"
+        }
+      ]
+    },
+    {
+      "id": "slotkin-2025-02-michigan-town-hall",
+      "candidate": "slotkin",
+      "date": "2025-02-18",
+      "event_type": "town_hall",
+      "title": "Michigan Town Hall on Manufacturing Jobs",
+      "location_city": "Lansing",
+      "location_state": "MI",
+      "location_display": "Lansing, MI",
+      "venue": "Lansing Community College",
+      "description": "Sen. Slotkin held a town hall focused on Michigan manufacturing jobs, drawing large union and auto worker attendance.",
+      "significance": "medium",
+      "press_clips": [
+        {
+          "outlet": "Detroit Free Press",
+          "headline": "Slotkin listens to Michigan workers' economic concerns",
+          "url": "",
+          "date": "2025-02-18"
+        }
+      ]
+    },
+    {
+      "id": "kelly-2025-02-arizona-town-hall",
+      "candidate": "kelly",
+      "date": "2025-02-15",
+      "event_type": "town_hall",
+      "title": "Arizona Town Hall on Federal Programs",
+      "location_city": "Tucson",
+      "location_state": "AZ",
+      "location_display": "Tucson, AZ",
+      "venue": "Tucson Convention Center",
+      "description": "Sen. Kelly held a packed town hall in Tucson addressing federal program cuts, with overflow crowds.",
+      "significance": "medium",
+      "press_clips": [
+        {
+          "outlet": "Arizona Daily Star",
+          "headline": "Kelly town hall draws hundreds in Tucson",
+          "url": "",
+          "date": "2025-02-15"
+        }
+      ]
+    },
+    {
+      "id": "ossoff-2025-02-judiciary-hearing",
+      "candidate": "ossoff",
+      "date": "2025-02-12",
+      "event_type": "speech",
+      "title": "Senate Judiciary Hearing \u2014 DOJ Interference",
+      "location_city": "Washington",
+      "location_state": "DC",
+      "location_display": "Washington, DC",
+      "venue": "U.S. Senate",
+      "description": "Sen. Ossoff's pointed questioning at a DOJ hearing generated viral clips and significant national attention.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Atlanta Journal-Constitution",
+          "headline": "Ossoff's sharp questioning goes viral at DOJ hearing",
+          "url": "",
+          "date": "2025-02-12"
+        }
+      ]
+    },
+    {
+      "id": "aoc-2025-02-bronx-town-hall",
+      "candidate": "aoc",
+      "date": "2025-02-10",
+      "event_type": "town_hall",
+      "title": "Bronx Town Hall on Federal Cuts",
+      "location_city": "Bronx",
+      "location_state": "NY",
+      "location_display": "Bronx, NY",
+      "venue": "Bronx Community College",
+      "description": "AOC held a packed town hall addressing federal program cuts, with overflow crowds and national live stream.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "New York Daily News",
+          "headline": "AOC town hall draws overflow crowd in Bronx",
+          "url": "",
+          "date": "2025-02-10"
+        }
+      ]
+    },
+    {
+      "id": "booker-2025-02-south-carolina",
+      "candidate": "booker",
+      "date": "2025-02-08",
+      "event_type": "travel",
+      "title": "South Carolina Democratic Party Dinner",
+      "location_city": "Columbia",
+      "location_state": "SC",
+      "location_display": "Columbia, SC",
+      "venue": "South Carolina Democratic Party HQ",
+      "description": "Sen. Booker headlined the SC Democratic Party dinner, meeting with local party leaders in a key early primary state.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "The State",
+          "headline": "Booker headlines SC Dems dinner",
+          "url": "",
+          "date": "2025-02-08"
+        }
+      ]
+    },
+    {
+      "id": "shapiro-2025-02-philly-rally",
+      "candidate": "shapiro",
+      "date": "2025-02-05",
+      "event_type": "rally",
+      "title": "Pennsylvania Rally Against Federal Cuts",
+      "location_city": "Philadelphia",
+      "location_state": "PA",
+      "location_display": "Philadelphia, PA",
+      "venue": "Philadelphia Convention Center",
+      "description": "Gov. Shapiro headlined a major PA Democratic rally against federal cuts, drawing thousands and national media coverage.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Philadelphia Inquirer",
+          "headline": "Shapiro rallies thousands against federal budget cuts",
+          "url": "",
+          "date": "2025-02-05"
+        }
+      ]
+    },
+    {
+      "id": "shapiro-2025-01-iowa-fundraiser",
+      "candidate": "shapiro",
+      "date": "2025-01-31",
+      "event_type": "travel",
+      "title": "Iowa Democratic Party Fundraiser",
+      "location_city": "Des Moines",
+      "location_state": "IA",
+      "location_display": "Des Moines, IA",
+      "venue": "Iowa Democratic Party",
+      "description": "Gov. Shapiro's early Iowa visit was among the first moves in his 2028 shadow campaign, meeting with key Iowa party activists.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Iowa Starting Line",
+          "headline": "Shapiro makes early Iowa stop as 2028 field forms",
+          "url": "",
+          "date": "2025-01-31"
+        }
+      ]
+    },
+    {
+      "id": "murphy-2025-01-gun-safety",
+      "candidate": "murphy",
+      "date": "2025-01-30",
+      "event_type": "speech",
+      "title": "Senate Floor Speech on Gun Safety",
+      "location_city": "Washington",
+      "location_state": "DC",
+      "location_display": "Washington, DC",
+      "venue": "U.S. Senate Chamber",
+      "description": "Sen. Murphy renewed his call for gun safety legislation, cementing his role as the Senate's leading gun control advocate.",
+      "significance": "medium",
+      "press_clips": [
+        {
+          "outlet": "Hartford Courant",
+          "headline": "Murphy calls for gun safety action in Senate speech",
+          "url": "",
+          "date": "2025-01-30"
+        }
+      ]
+    },
+    {
+      "id": "kelly-2025-01-senate-veterans",
+      "candidate": "kelly",
+      "date": "2025-01-28",
+      "event_type": "speech",
+      "title": "Senate Floor Speech on Veterans Affairs",
+      "location_city": "Washington",
+      "location_state": "DC",
+      "location_display": "Washington, DC",
+      "venue": "U.S. Senate Chamber",
+      "description": "Sen. Kelly delivered a forceful speech opposing VA cuts, drawing on his Navy pilot background and astronaut experience.",
+      "significance": "medium",
+      "press_clips": [
+        {
+          "outlet": "Arizona Republic",
+          "headline": "Kelly blasts VA cuts on Senate floor",
+          "url": "",
+          "date": "2025-01-28"
+        }
+      ]
+    },
+    {
+      "id": "pritzker-2025-01-state-of-state",
+      "candidate": "pritzker",
+      "date": "2025-01-25",
+      "event_type": "speech",
+      "title": "Illinois State of the State Address",
+      "location_city": "Springfield",
+      "location_state": "IL",
+      "location_display": "Springfield, IL",
+      "venue": "Illinois State Capitol",
+      "description": "Gov. Pritzker's State of the State contrasted Illinois progressive policies with the Trump administration's agenda, setting a national tone.",
+      "significance": "medium",
+      "press_clips": [
+        {
+          "outlet": "Chicago Tribune",
+          "headline": "Pritzker uses State of the State to draw contrast with Trump",
+          "url": "",
+          "date": "2025-01-25"
+        }
+      ]
+    },
+    {
+      "id": "crow-2025-01-veterans-rally",
+      "candidate": "crow",
+      "date": "2025-01-22",
+      "event_type": "rally",
+      "title": "Colorado Veterans Advocacy Rally",
+      "location_city": "Denver",
+      "location_state": "CO",
+      "location_display": "Denver, CO",
+      "venue": "Colorado State Capitol Steps",
+      "description": "Rep. Crow organized a veterans rally opposing VA cuts, drawing on his Army Ranger background.",
+      "significance": "medium",
+      "press_clips": [
+        {
+          "outlet": "Denver Post",
+          "headline": "Crow rallies Colorado veterans against VA funding cuts",
+          "url": "",
+          "date": "2025-01-22"
+        }
+      ]
+    },
+    {
+      "id": "aoc-2025-01-20-inauguration",
+      "candidate": "aoc",
+      "date": "2025-01-20",
+      "event_type": "other",
+      "title": "Inauguration Day Protest Remarks",
+      "location_city": "Washington",
+      "location_state": "DC",
+      "location_display": "Washington, DC",
+      "venue": "Capitol Hill",
+      "description": "Rep. AOC spoke at protests on Inauguration Day, positioning herself as a leading opposition voice.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "The Guardian",
+          "headline": "AOC rallies protesters on inauguration day",
+          "url": "",
+          "date": "2025-01-20"
+        }
+      ]
+    },
+    {
+      "id": "buttigieg-2025-01-dot-departure",
+      "candidate": "buttigieg",
+      "date": "2025-01-20",
+      "event_type": "other",
+      "title": "Departed as Transportation Secretary",
+      "location_city": "Washington",
+      "location_state": "DC",
+      "location_display": "Washington, DC",
+      "venue": "Department of Transportation",
+      "description": "Pete Buttigieg officially left his role as Secretary of Transportation, delivering a farewell address to staff and beginning his post-cabinet political life.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Politico",
+          "headline": "Buttigieg departs DOT, future political plans unclear",
+          "url": "",
+          "date": "2025-01-20"
+        }
+      ]
+    },
+    {
+      "id": "khanna-2025-01-peoples-march",
+      "candidate": "khanna",
+      "date": "2025-01-18",
+      "event_type": "rally",
+      "title": "People's March \u2014 Washington DC",
+      "location_city": "Washington",
+      "location_state": "DC",
+      "location_display": "Washington, DC",
+      "venue": "National Mall",
+      "description": "Rep. Khanna spoke at the People's March ahead of the inauguration, calling for progressive economic populism.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "The Nation",
+          "headline": "Khanna calls for progressive economic populism at People's March",
+          "url": "",
+          "date": "2025-01-18"
+        }
+      ]
+    },
+    {
+      "id": "booker-2025-01-naacp-mlk",
+      "candidate": "booker",
+      "date": "2025-01-15",
+      "event_type": "speech",
+      "title": "MLK Day NAACP Keynote",
+      "location_city": "Washington",
+      "location_state": "DC",
+      "location_display": "Washington, DC",
+      "venue": "NAACP National Headquarters",
+      "description": "Sen. Booker delivered a keynote address invoking King's legacy and calling for renewed civil rights advocacy.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "NBC News",
+          "headline": "Booker invokes King's legacy in MLK Day address",
+          "url": "",
+          "date": "2025-01-15"
+        }
+      ]
+    },
+    {
+      "id": "newsom-2025-01-la-fires",
+      "candidate": "newsom",
+      "date": "2025-01-10",
+      "event_type": "other",
+      "title": "Los Angeles Wildfire Emergency Response",
+      "location_city": "Los Angeles",
+      "location_state": "CA",
+      "location_display": "Los Angeles, CA",
+      "venue": "Multiple fire zones",
+      "description": "Gov. Newsom managed the state response to devastating LA wildfires, holding daily press conferences and touring fire zones under intense national scrutiny.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Los Angeles Times",
+          "headline": "Newsom tours wildfire devastation as criticism mounts",
+          "url": "",
+          "date": "2025-01-10"
+        },
+        {
+          "outlet": "Politico",
+          "headline": "LA fires become political flashpoint for Newsom",
+          "url": "",
+          "date": "2025-01-12"
+        }
+      ]
+    },
+    {
+      "id": "harris-2025-01-20-certification",
+      "candidate": "harris",
+      "date": "2025-01-06",
+      "event_type": "other",
+      "title": "Presided Over Electoral College Certification",
+      "location_city": "Washington",
+      "location_state": "DC",
+      "location_display": "Washington, DC",
+      "venue": "U.S. Capitol",
+      "description": "VP Harris presided over the certification of her own electoral loss \u2014 a historic moment watched nationally.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Associated Press",
+          "headline": "Harris presides over certification of her own defeat",
+          "url": "",
+          "date": "2025-01-06"
+        }
+      ]
+    },
+    {
+      "id": "slotkin-2025-01-sworn-in",
+      "candidate": "slotkin",
+      "date": "2025-01-03",
+      "event_type": "other",
+      "title": "Sworn In as U.S. Senator from Michigan",
+      "location_city": "Washington",
+      "location_state": "DC",
+      "location_display": "Washington, DC",
+      "venue": "U.S. Senate Chamber",
+      "description": "Elissa Slotkin was sworn in as Michigan's new U.S. Senator, delivering remarks positioning herself as a centrist focused on working-class voters.",
+      "significance": "high",
+      "press_clips": [
+        {
+          "outlet": "Detroit Free Press",
+          "headline": "Slotkin sworn in as Michigan's newest senator",
+          "url": "",
+          "date": "2025-01-03"
+        }
       ]
     }
   ]
